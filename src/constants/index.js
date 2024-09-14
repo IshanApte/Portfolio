@@ -1,28 +1,17 @@
 import {
-  mobile,
-  backend,
-  creator,
-  web,
   javascript,
-  typescript,
-  html,
-  css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   git,
   figma,
-  tesla,
-  meta,
   docker,
-  carrent,
-  jobit,
-  tripguide,
   threejs,
 } from "../assets";
 
+import pythonLogo from '../assets/tech/pythonlogo.png';
+import cppLogo from '../assets/tech/cpplogo.png';
 
 
 export const navLinks = [
@@ -43,11 +32,11 @@ export const navLinks = [
 const services = [
   {
     title: "Python Programmer",
-    icon: 'src/assets/tech/pythonlogo.png',
+    icon: pythonLogo,
   },
   {
     title: "C++ Programmer",
-    icon: "src/assets/tech/cpplogo.png",
+    icon: cppLogo,
   },
   {
     title: "Web Developer",
