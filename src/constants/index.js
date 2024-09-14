@@ -10,8 +10,13 @@ import {
   threejs,
 } from "../assets";
 
+
 import pythonLogo from '../assets/tech/pythonlogo.png';
 import cppLogo from '../assets/tech/cpplogo.png';
+import reactLogo from '../assets/tech/reactjs.png';
+import aimlLogo from '../assets/tech/aiml.png';
+import sqlLogo from '../assets/tech/sql.png';
+
 
 
 export const navLinks = [
@@ -40,26 +45,26 @@ const services = [
   },
   {
     title: "Web Developer",
-    icon: 'src/assets/tech/reactjs.png',
+    icon: reactLogo,
   },
   {
     title: "AI/ML Engineer",
-    icon:"src/assets/tech/aiml.png",
+    icon: aimlLogo,
   },
 ];
 
 const technologies = [
   {
     name: "Python",
-    icon: 'src/assets/tech/pythonlogo.png',
+    icon: pythonLogo,
   },
   {
     name: "C++ Programmer",
-    icon: "src/assets/tech/cpplogo.png",
+    icon: cppLogo,
   },
   {
     name: "SQL",
-    icon: "src/assets/tech/sql.png",
+    icon: sqlLogo,
   },
 
   {
