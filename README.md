@@ -1,1 +1,2 @@
 I have taken reference of a YT video and their repo which i will add soon to this README and then customed it to my liking
+credit for the Ferris WHEEL model: "Isometric Ferris wheel - Daily render - 29" (https://skfb.ly/RNPt) by gav.grant is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

@@ -17,6 +17,13 @@ import reactLogo from '../assets/tech/reactjs.png';
 import aimlLogo from '../assets/tech/aiml.png';
 import sqlLogo from '../assets/tech/sql.png';
 
+import pictLogo from '../assets/company/pict.png';
+import iuLogo from '../assets/company/iu.png';
+
+import sportsImage from '../assets/sports.jpg';
+import planningImage from '../assets/planning.png';
+import plantImage from '../assets/plant.png';
+
 
 
 export const navLinks = [
@@ -110,7 +117,7 @@ const experiences = [
   {
     title: "Pune Institute Of Computer Technology",
     company_name: "Undergraduate",
-    icon: "src/assets/company/pict.png",
+    icon: pictLogo,
     iconBg: "#ffffff",
     date: "August 2019 - May 2023",
     points: [
@@ -132,7 +139,7 @@ const experiences = [
   {
     title: "Research Assistant Intern",
     company_name: "Pune Institute of Computer Technology",
-    icon: "src/assets/company/pict.png",
+    icon: pictLogo,
     iconBg: "#ffffff",
     date: "Jan 2022 - Jan 2023",
     points: [
@@ -142,7 +149,7 @@ const experiences = [
   {
     title: "Indiana University Bloomington",
     company_name: "Graduate",
-    icon: 'src/assets/company/iu.png',
+    icon: iuLogo,
     iconBg: "#ffffff",
     date: "August 2023 - May 2025 (Ongoing)",
     points: [
@@ -198,7 +205,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "src/assets/sports.jpg",
+    image: sportsImage,
     source_code_link: "https://github.com/",
   },
   {
@@ -219,7 +226,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "src/assets/planning.png",
+    image: planningImage,
     source_code_link: "https://github.com/",
   },
   {
@@ -240,7 +247,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "src/assets/plant.png",
+    image: plantImage,
     source_code_link: "https://github.com/",
   },
 ];
