@@ -7,8 +7,6 @@ import CanvasLoader from "../Loader";
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./ferris/scene.gltf");
   
-
-  
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor='black' />
@@ -65,6 +63,7 @@ const ComputersCanvas = () => {
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
+        autoRotate
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
