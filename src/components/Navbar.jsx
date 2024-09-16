@@ -90,28 +90,18 @@ const Navbar = () => {
             } p-6 black absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li key={nav.id}>
-                  {nav.href.startsWith("http") ? (
-                    <a href={nav.href} target="_blank" rel="noopener noreferrer">
-                      {nav.title}
-                    </a>
-                  ) : (
-                    <ScrollLink
-                      to={nav.href}
-                      smooth={true}
-                      duration={200}
-                      className="cursor-pointer"
-                      onClick={() => {
-                        setActive(nav.id);
-                        setToggle(false);  // Close the menu after clicking
-                      }}
-                    >
-                      {nav.title}
-                    </ScrollLink>
-                  )}
-                </li>
-              ))}
+            {navLinks.map((nav) => (
+    <li key={nav.id}>
+      <a
+        href={nav.href}
+        target={nav.id === "resume" ? "_blank" : "_self"} // Open in a new tab for external links
+        rel={nav.id === "resume" ? "noopener noreferrer" : ""}
+        className={nav.color ? nav.color : ''}  // Apply color class only if it exists
+      >
+        {nav.title}
+      </a>
+    </li>
+  ))}
             </ul>
           </div>
         </div>
