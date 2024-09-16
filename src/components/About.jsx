@@ -6,7 +6,7 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-
+// import {profilepic} from "/Users/ishanapte/Documents/Portfolio/src/assets/LinkedIn_Profile.jpeg";
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'>
     <motion.div
@@ -43,17 +43,31 @@ const About = () => {
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm Ishan Apte, a passionate software developer driven by a deep interest in 
-        solving real-world problems through technology. With expertise in Python, JavaScript, and the MERN stack, 
-        I have developed full-stack applications, machine learning models, and autonomous systems. 
-        From building a social media platform for sports enthusiasts to automating hydroponic farming, 
-        I focus on creating scalable, efficient, and user-friendly solutions. 
-        I love finding innovative solutions to complex problems.
-      </motion.p>
+      {/* Responsive layout for image and text */}
+      <div className='flex flex-col lg:flex-row items-center lg:items-start mt-4'>
+        {/* Your image */}
+        
+
+        {/* Overview paragraph */}
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className='text-secondary text-[17px] max-w-3xl leading-[30px]'
+        >
+          I'm Ishan Apte, a passionate software developer driven by a deep interest in 
+          solving real-world problems through technology. With expertise in Python, JavaScript, and the MERN stack, 
+          I have developed full-stack applications, machine learning models, and autonomous systems. 
+          From building a social media platform for sports enthusiasts to automating hydroponic farming, 
+          I focus on creating scalable, efficient, and user-friendly solutions. 
+          I love finding innovative solutions to complex problems.
+        </motion.p>
+
+
+        <img
+          src='src/assets/LinkedIn_Profile.jpeg'  // Path to your uploaded image
+          alt='Ishan Apte'
+          className='w-48 h-48 rounded-full object-cover lg:ml-10 ml-4 lg:mr-8 mb-4 lg:mb-0'
+          />
+      </div>
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => (
