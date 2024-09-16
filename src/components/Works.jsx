@@ -59,7 +59,7 @@ const ProjectCard = ({
               className={`text-[14px] ${tag.color}`}
             >
               #{tag.name}
-            </p>
+            </p> 
           ))}
         </div>
       </Tilt>

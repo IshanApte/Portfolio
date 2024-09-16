@@ -51,18 +51,17 @@ const Navbar = () => {
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
         {navLinks.map((nav) => (
-      <li key={nav.id}>
-        {nav.href ? (
-          <a href={nav.href} target="_blank" rel="noopener noreferrer">
-            {nav.title}
-          </a>
-        ) : (
-          <a href={`#${nav.id}`}>
-            {nav.title}
-          </a>
-        )}
-      </li>
-    ))}
+    <li key={nav.id}>
+      <a
+        href={nav.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={nav.color ? nav.color : ''}  // Apply color class only if it exists
+      >
+        {nav.title}
+      </a>
+    </li>
+  ))}
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
