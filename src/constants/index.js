@@ -31,19 +31,22 @@ export const navLinks = [
   {
     id: "about",
     title: "About",
+    href: "about",  // For internal scrolling
   },
   {
     id: "work",
     title: "Work",
+    href: "work",   // For internal scrolling
   },
   {
     id: "contact",
     title: "Contact",
+    href: "contact", // For internal scrolling
   },
   {
     id: "resume",
     title: "Resume",
-    href: "https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ",  // Make sure the full URL is correct
+    href: "https://www.example.com/IshanApteResume.pdf",  // External link for the resume
     color: "blue-text-gradient",
   }
 ];
