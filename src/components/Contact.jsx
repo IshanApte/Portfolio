@@ -41,7 +41,7 @@ const Contact = () => {
       </div>
       <div class="p-4 sm:w-1/4 w-1/2">
   <div class="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
-    <a href="/assets/IshanApteResume.pdf" target="_blank">
+    <a href="https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ" target="_blank">
       <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">Resume</h2>
     </a>
   </div>

@@ -50,17 +50,19 @@ const Navbar = () => {
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-black" : "text-secondary"
-              } hover:text-black text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
-          ))}
+        {navLinks.map((nav) => (
+      <li key={nav.id}>
+        {nav.href ? (
+          <a href={nav.href} target="_blank" rel="noopener noreferrer">
+            {nav.title}
+          </a>
+        ) : (
+          <a href={`#${nav.id}`}>
+            {nav.title}
+          </a>
+        )}
+      </li>
+    ))}
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -77,20 +79,21 @@ const Navbar = () => {
             } p-6 black absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-black" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
+            {navLinks.map((nav) => (
+  nav.href ? (
+    <li key={nav.id}>
+      <a href={nav.href} target="_blank" rel="noopener noreferrer">
+        {nav.title}
+      </a>
+    </li>
+  ) : (
+    <li key={nav.id}>
+      <a href={`#${nav.id}`}>
+        {nav.title}
+      </a>
+    </li>
+  )
+))}
             </ul>
           </div>
         </div>
