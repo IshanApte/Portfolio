@@ -23,6 +23,7 @@ import iuLogo from '../assets/company/iu.png';
 import sportsImage from '../assets/sports.jpg';
 import planningImage from '../assets/planning.png';
 import plantImage from '../assets/plant.png';
+// import resumefile from '/IshanApteResume.pdf';
 
 
 
@@ -39,6 +40,11 @@ export const navLinks = [
     id: "contact",
     title: "Contact",
   },
+  {
+    id: "resume",
+    title: "Resume",
+    href: "https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ",  // Make sure the full URL is correct
+  }
 ];
 
 const services = [
