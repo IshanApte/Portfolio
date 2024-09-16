@@ -63,7 +63,7 @@ const About = () => {
 
 
         <img
-          src='src/assets/LinkedIn_Profile.jpeg'  // Path to your uploaded image
+          src='/LinkedIn_Profile.jpeg' 
           alt='Ishan Apte'
           className='w-48 h-48 rounded-full object-cover lg:ml-10 ml-4 lg:mr-8 mb-4 lg:mb-0'
           />
