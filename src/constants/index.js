@@ -44,6 +44,7 @@ export const navLinks = [
     id: "resume",
     title: "Resume",
     href: "https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ",  // Make sure the full URL is correct
+    color: "blue-text-gradient",
   }
 ];
 
