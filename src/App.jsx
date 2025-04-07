@@ -28,16 +28,18 @@ const App = () => {
           </div>
         } />
         <Route path="/blog" element={
-          <>
+          <div className="bg-[#f8fafc]">
             <Navbar />
             <BlogLayout />
-          </>
+            <Footer />
+          </div>
         } />
         <Route path="/blog/:id" element={
-          <>
+          <div className="bg-[#f8fafc]">
             <Navbar />
             <BlogPost />
-          </>
+            <Footer />
+          </div>
         } />
       </Routes>
     </BrowserRouter>
