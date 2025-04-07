@@ -51,7 +51,6 @@ const Navbar = () => {
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((nav) => (
             <li key={nav.id} className={`${nav.id === active ? 'text-active' : ''}`}>
-              {/* Handle internal scroll links */}
               {nav.href.startsWith("http") ? (
                 <a
                   href={nav.href}
@@ -61,16 +60,24 @@ const Navbar = () => {
                 >
                   {nav.title}
                 </a>
+              ) : nav.href.startsWith("/") ? (
+                <RouterLink
+                  to={nav.href}
+                  className={nav.color ? nav.color : ''}
+                  onClick={() => setActive(nav.id)}
+                >
+                  {nav.title}
+                </RouterLink>
               ) : (
                 <ScrollLink
-                to={nav.href}
-                smooth={true}
-                duration={500}  // Consistent scroll speed (500ms)
-                className="cursor-pointer"
-                onClick={() => setActive(nav.id)}
-              >
-                {nav.title}
-              </ScrollLink>
+                  to={nav.href}
+                  smooth={true}
+                  duration={500}
+                  className="cursor-pointer"
+                  onClick={() => setActive(nav.id)}
+                >
+                  {nav.title}
+                </ScrollLink>
               )}
             </li>
           ))}
@@ -91,18 +98,42 @@ const Navbar = () => {
             p-6 bg-[#C0C0C0] absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-            {navLinks.map((nav) => (
-    <li key={nav.id}>
-      <a
-        href={nav.href}
-        target={nav.id === "resume" ? "_blank" : "_self"} // Open in a new tab for external links
-        rel={nav.id === "resume" ? "noopener noreferrer" : ""}
-        className={nav.color ? nav.color : ''}  // Apply color class only if it exists
-      >
-        {nav.title}
-      </a>
-    </li>
-  ))}
+              {navLinks.map((nav) => (
+                <li key={nav.id}>
+                  {nav.href.startsWith("http") ? (
+                    <a
+                      href={nav.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={nav.color ? nav.color : ''}
+                    >
+                      {nav.title}
+                    </a>
+                  ) : nav.href.startsWith("/") ? (
+                    <RouterLink
+                      to={nav.href}
+                      className={nav.color ? nav.color : ''}
+                      onClick={() => {
+                        setToggle(false);
+                        setActive(nav.id);
+                      }}
+                    >
+                      {nav.title}
+                    </RouterLink>
+                  ) : (
+                    <a
+                      href={`#${nav.href}`}
+                      className={nav.color ? nav.color : ''}
+                      onClick={() => {
+                        setToggle(false);
+                        setActive(nav.id);
+                      }}
+                    >
+                      {nav.title}
+                    </a>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

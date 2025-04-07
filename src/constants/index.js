@@ -44,6 +44,12 @@ export const navLinks = [
     href: "contact",
   },
   {
+    id: "blog",
+    title: "Blog",
+    href: "/blog",
+    color: "text-[#2962FF]",
+  },
+  {
     id: "resume",
     title: "Resume",
     href: "https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ?e=RZDWBw",  // Use a valid URL here
