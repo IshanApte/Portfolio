@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas} from "./components";
 import Footer from "./components/Footer";
-import UnderConstruction from "./components/UnderConstruction";
+import BlogLayout from "./components/BlogLayout";
+import BlogPost from "./components/BlogPost";
 
 const App = () => {
   return (
@@ -26,7 +27,18 @@ const App = () => {
             <Footer />
           </div>
         } />
-        <Route path="/blog" element={<UnderConstruction />} />
+        <Route path="/blog" element={
+          <>
+            <Navbar />
+            <BlogLayout />
+          </>
+        } />
+        <Route path="/blog/:id" element={
+          <>
+            <Navbar />
+            <BlogPost />
+          </>
+        } />
       </Routes>
     </BrowserRouter>
   );
