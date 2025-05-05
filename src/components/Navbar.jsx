@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink } from 'react-scroll';  // Import from react-scroll
 
@@ -6,10 +6,32 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
+// Helper component for dropdown menu
+const DropdownMenu = ({ subLinks }) => {
+  return (
+    <ul className="absolute bg-primary shadow-lg rounded-md mt-2 py-1 z-20">
+      {subLinks.map((subLink) => (
+        <li key={subLink.id}>
+          <a
+            href={subLink.href}
+            target={subLink.target || "_self"} // Default to _self if target is not specified
+            rel="noopener noreferrer"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          >
+            {subLink.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [resumeDropdownOpen, setResumeDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +47,18 @@ const Navbar = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setResumeDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
     <nav
@@ -50,8 +84,22 @@ const Navbar = () => {
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
           {navLinks.map((nav) => (
-            <li key={nav.id} className={`${nav.id === active ? 'text-active' : ''}`}>
-              {nav.href.startsWith("http") ? (
+            <li key={nav.id} className={`relative group ${nav.id === active ? 'text-active' : ''}`} ref={nav.id === 'resume' ? dropdownRef : null}>
+              {nav.subLinks ? (
+                <>
+                  <button 
+                    className={`cursor-pointer ${nav.color ? nav.color : ''} flex items-center`}
+                    onClick={() => {
+                      setActive(nav.id);
+                      setResumeDropdownOpen(!resumeDropdownOpen);
+                    }}
+                  >
+                    {nav.title}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  {resumeDropdownOpen && <DropdownMenu subLinks={nav.subLinks} />}
+                </>
+              ) : nav.href && nav.href.startsWith("http") ? (
                 <a
                   href={nav.href}
                   target="_blank"
@@ -100,16 +148,29 @@ const Navbar = () => {
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (
                 <li key={nav.id}>
-                  {nav.href.startsWith("http") ? (
+                  {nav.subLinks ? (
+                    <span 
+                      className={`font-medium cursor-default ${nav.color ? nav.color : ''}`}
+                      onClick={() => {
+                        setActive(nav.id); 
+                      }}
+                    >
+                      {nav.title}
+                    </span>
+                  ) : nav.href && nav.href.startsWith("http") ? (
                     <a
                       href={nav.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={nav.color ? nav.color : ''}
+                      onClick={() => {
+                        setToggle(false);
+                        setActive(nav.id);
+                      }}
                     >
                       {nav.title}
                     </a>
-                  ) : nav.href.startsWith("/") ? (
+                  ) : nav.href && nav.href.startsWith("/") ? (
                     <RouterLink
                       to={nav.href}
                       className={nav.color ? nav.color : ''}

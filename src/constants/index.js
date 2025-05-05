@@ -52,8 +52,21 @@ export const navLinks = [
   {
     id: "resume",
     title: "Resume",
-    href: "https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ?e=RZDWBw",  // Use a valid URL here
-    color: "blue-text-gradient",       // Add the color class
+    color: "blue-text-gradient",
+    subLinks: [
+      {
+        id: "resume-swe",
+        title: "Software Developer",
+        href: "/IshanApte_SDE_Resume.pdf",
+        target: "_blank",
+      },
+      {
+        id: "resume-ai",
+        title: "AI / ML",
+        href: "/IshanApte_AI_Resume.pdf",
+        target: "_blank",
+      },
+    ],
   }
 ];
 
