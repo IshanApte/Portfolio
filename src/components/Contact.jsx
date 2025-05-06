@@ -9,40 +9,40 @@ import { slideIn } from "../utils/motion";
 
 const Contact = () => {
   return (
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-8">
-      <div class="w-full mb-6 lg:mb-0">
-        <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Like something you see? Get in touch.</h1>
-        <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+<section className="text-gray-600 body-font">
+  <div className="container px-5 py-24 mx-auto">
+    <div className="flex flex-wrap w-full mb-8">
+      <div className="w-full mb-6 lg:mb-0">
+        <h1 className="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Like something you see? Get in touch.</h1>
+        <div className="h-1 w-20 bg-indigo-500 rounded"></div>
       </div>
     </div>
-    <div class="flex flex-wrap -m-4 text-center">
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <div class="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
+    <div className="flex flex-wrap -m-4 text-center">
+      <div className="p-4 sm:w-1/4 w-1/2">
+        <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
           <a href="https://www.linkedin.com/in/ishan-apte-1489a9213/">
-            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">Linkedin</h2></a>
-            {/* <p class="leading-relaxed text-gray-100 font-bold">Linkedin</p> */}
+            <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Linkedin</h2></a>
+            {/* <p className="leading-relaxed text-gray-100 font-bold">Linkedin</p> */}
         </div>
       </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <div class="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
+      <div className="p-4 sm:w-1/4 w-1/2">
+        <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
           <a href="https://github.com/IshanApte">
-            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">Github</h2></a>
-            {/* <p class="leading-relaxed text-gray-100 font-bold"><img class="object-contain" src="src/assets/github.png"/></p> */}
+            <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Github</h2></a>
+            {/* <p className="leading-relaxed text-gray-100 font-bold"><img className="object-contain" src="src/assets/github.png"/></p> */}
         </div>
       </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <div class="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
+      <div className="p-4 sm:w-1/4 w-1/2">
+        <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
           <a href="mailto: ishan.apte01@gmail.com">
-            <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">Gmail</h2></a>
-            {/* <p class="leading-relaxed text-gray-100 font-bold"><img class="object-contain" src="src/assets/gmail.png"/></p> */}
+            <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Gmail</h2></a>
+            {/* <p className="leading-relaxed text-gray-100 font-bold"><img className="object-contain" src="src/assets/gmail.png"/></p> */}
         </div>
       </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-  <div class="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
+      <div className="p-4 sm:w-1/4 w-1/2">
+  <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
     <a href="https://indiana-my.sharepoint.com/:b:/g/personal/iapte_iu_edu/EcOm-xa6qU5Dk5nhIdMhkakBMI6oYreDtO8dNRZHss44OQ" target="_blank">
-      <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">Resume</h2>
+      <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Resume</h2>
     </a>
   </div>
 </div>
