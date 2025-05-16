@@ -22,7 +22,7 @@ import iuLogo from '../assets/company/iu.png';
 
 import sportsImage from '../assets/sports.jpg';
 import planningImage from '../assets/planning.png';
-import plantImage from '../assets/plant.png';
+// import plantImage from '../assets/plant.png';
 import bloomingtonBuzzImage from '../assets/BloomingtonBuzz.png';
 import superAgentImage from '../assets/gmailagent.png';
 // import resumefile from '/IshanApteResume.pdf';
