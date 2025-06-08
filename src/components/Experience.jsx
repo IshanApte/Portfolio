@@ -12,13 +12,25 @@ import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
 const ExperienceCard = ({ experience }) => {
+  // Define colors based on experience type
+  const educationColor = "#003366";
+  const workColor = "#014d4e";
+  const defaultColor = "#03346E";
+
+  // Determine background color
+  const backgroundColor = 
+    experience.type === 'education' ? educationColor :
+    experience.type === 'work' ? workColor :
+    defaultColor;
+
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#03346E", // Black background for timeline elements
+        background: backgroundColor, // Use the dynamic color
         color: "#ffffff",
+        borderRadius: "10px", // Added for rounded edges
       }}
-      contentArrowStyle={{ borderRight: "7px solid #000000" }} // Black arrow
+      contentArrowStyle={{ borderRight: `7px solid ${backgroundColor}` }} // Match arrow color to box color
       date={experience.date}
       dateClassName="date-class" // Add a class for custom date styling if needed
       iconStyle={{ background: experience.iconBg }}

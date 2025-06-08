@@ -45,31 +45,31 @@ export const navLinks = [
     title: "Contact",
     href: "contact",
   },
-  {
-    id: "blog",
-    title: "Blog",
-    href: "/blog",
-    color: "text-[#2962FF]",
-  },
-  {
-    id: "resume",
-    title: "Resume",
-    color: "blue-text-gradient",
-    subLinks: [
-      {
-        id: "resume-swe",
-        title: "Software Developer",
-        href: "/IshanApte_SDE_Resume.pdf",
-        target: "_blank",
-      },
-      {
-        id: "resume-ai",
-        title: "AI / ML",
-        href: "/IshanApte_AI_Resume.pdf",
-        target: "_blank",
-      },
-    ],
-  }
+  // {
+  //   id: "blog",
+  //   title: "Blog",
+  //   href: "/blog",
+  //   color: "text-[#2962FF]",
+  // },
+  // {
+  //   id: "resume",
+  //   title: "Resume",
+  //   color: "blue-text-gradient",
+  //   subLinks: [
+  //     {
+  //       id: "resume-swe",
+  //       title: "Software Developer",
+  //       href: "/IshanApte_SDE_Resume.pdf",
+  //       target: "_blank",
+  //     },
+  //     {
+  //       id: "resume-ai",
+  //       title: "AI / ML",
+  //       href: "/IshanApte_AI_Resume.pdf",
+  //       target: "_blank",
+  //     },
+  //   ],
+  // }
 ];
 
 const services = [
@@ -146,25 +146,27 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Pune Institute Of Computer Technology",
-    company_name: "Undergraduate",
-    icon: pictLogo,
+    title: "Software Developer",
+    company_name: "Indiana University Bloomington",
+    icon: iuLogo,
     iconBg: "#ffffff",
-    date: "August 2019 - May 2023",
+    date: "June 2025 - Ongoing",
+    type: "work",
     points: [
-      "PICT Hackathon 2022 Runner Up - Home Security Device using old smartphones",
-      "Conducted Talk on Basics of Web Development - MERN Stack",
-      "Machine Learning Paper Published - Sentiment Analysis",
+      "Developing an iOS event discovery app for Indiana University using SwiftUI, implementing 5 key features including interactive mapping (MapKit) and location-based recommendations (CoreLocation).",
+      "Conducted user testing with 20+ peers, incorporating feedback that enhances user experience by streamlining event discovery for the campus community.",
     ],
   },
   {
-    title: "Web Developer Intern",
-    company_name: "Finquest (Indian Economics Updates)",
+    title: "Indiana University Bloomington",
+    company_name: "Graduate",
+    icon: iuLogo,
     iconBg: "#ffffff",
-    date: "June 2021- September 2021",
+    date: "August 2023 - May 2025",
+    type: "education",
     points: [
-      "Designed the front-end of a website that showcases news articles produced by FinQuest",
-      "Experimented with Bootstrap to produce an eye-catching grid display of articles using the ReactJs Framework",
+      "Applied Algorithms, Advanced Database Concepts",
+      "Knowledge based AI, Software Engineering",
     ],
   },
   {
@@ -173,19 +175,33 @@ const experiences = [
     icon: pictLogo,
     iconBg: "#ffffff",
     date: "Jan 2022 - Jan 2023",
+    type: "work",
     points: [
       "Implemented a Convolutional Neural Network for weather condition classification with an 88% accuracy, contributing key findings to the project",
     ],
   },
   {
-    title: "Indiana University Bloomington",
-    company_name: "Graduate",
-    icon: iuLogo,
+    title: "Web Developer Intern",
+    company_name: "Finquest (Indian Economics Updates)",
     iconBg: "#ffffff",
-    date: "August 2023 - May 2025 (Ongoing)",
+    date: "June 2021 - September 2021",
+    type: "work",
     points: [
-      "Applied Algorithms, Advanced Database Concepts",
-      "Knowledge based AI, Software Engineering",
+      "Designed the front-end of a website that showcases news articles produced by FinQuest",
+      "Experimented with Bootstrap to produce an eye-catching grid display of articles using the ReactJs Framework",
+    ],
+  },
+  {
+    title: "Pune Institute Of Computer Technology",
+    company_name: "Undergraduate",
+    icon: pictLogo,
+    iconBg: "#ffffff",
+    date: "August 2019 - May 2023",
+    type: "education",
+    points: [
+      "PICT Hackathon 2022 Runner Up - Home Security Device using old smartphones",
+      "Conducted Talk on Basics of Web Development - MERN Stack",
+      "Machine Learning Paper Published - Sentiment Analysis",
     ],
   },
 ];

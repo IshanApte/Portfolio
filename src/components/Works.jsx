@@ -1,5 +1,5 @@
 import React from "react";
-import Tilt from "react-parallax-tilt";
+// import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -18,13 +18,7 @@ const ProjectCard = ({
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        tiltMaxAngleX={25}
-        tiltMaxAngleY={25}
-        scale={1}
-        transitionSpeed={450}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
-      >
+      <div className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'>
         <div className='relative w-full h-[230px]'>
           <img
             src={image}
@@ -61,7 +55,7 @@ const ProjectCard = ({
             </p> 
           ))}
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   );
 };

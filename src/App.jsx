@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas} from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, CursorFilter} from "./components";
 import Footer from "./components/Footer";
-import BlogLayout from "./components/BlogLayout";
-import BlogPost from "./components/BlogPost";
+// import BlogLayout from "./components/BlogLayout";
+// import BlogPost from "./components/BlogPost";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <CursorFilter />
       <Routes>
         <Route path="/" element={
           <div className='relative z-0 bg-primary'>
@@ -27,7 +28,7 @@ const App = () => {
             <Footer />
           </div>
         } />
-        <Route path="/blog" element={
+        {/* <Route path="/blog" element={
           <div className="bg-[#f8fafc]">
             <Navbar />
             <BlogLayout />
@@ -40,7 +41,7 @@ const App = () => {
             <BlogPost />
             <Footer />
           </div>
-        } />
+        } /> */}
       </Routes>
     </BrowserRouter>
   );

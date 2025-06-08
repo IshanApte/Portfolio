@@ -1,5 +1,5 @@
 import React from "react";
-import Tilt from "react-parallax-tilt";
+// import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -8,13 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 // import {profilepic} from "/Users/ishanapte/Documents/Portfolio/src/assets/LinkedIn_Profile.jpeg";
 const ServiceCard = ({ index, title, icon }) => (
-  <Tilt 
-    className='xs:w-[250px] w-full' 
-    tiltMaxAngleX={25}
-    tiltMaxAngleY={25} 
-    scale={1.05} 
-    transitionSpeed={450} 
-  >
+  <div className='xs:w-[250px] w-full'>
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className='w-full black-gradient p-[1px] rounded-[20px] shadow-card'
@@ -33,7 +27,7 @@ const ServiceCard = ({ index, title, icon }) => (
         </h3>
       </div>
     </motion.div>
-  </Tilt>
+  </div>
 );
 
 const About = () => {
