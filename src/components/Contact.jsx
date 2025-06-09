@@ -91,13 +91,13 @@ const Contact = () => {
             {resumeDropdownOpen && <DropdownMenu subLinks={resumeLink.subLinks} />}
           </div>
         ) : (
-          <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
+  <div className="bg-indigo-500 rounded-lg p-2 xl:p-6 hover:shadow-xl transition-all duration-200">
             <a href="#" target="_blank">
-              <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Resume</h2>
-            </a>
-          </div>
+      <h2 className="title-font font-medium sm:text-4xl text-3xl text-white">Resume</h2>
+    </a>
+  </div>
         )}
-      </div>
+</div>
     </div>
   </div>
 </section>
