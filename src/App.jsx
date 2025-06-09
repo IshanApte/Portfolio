@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, CursorFilter} from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Works, CursorFilter, AnimatedSection} from "./components";
 import Footer from "./components/Footer";
 import BlogLayout from "./components/BlogLayout";
 import BlogPost from "./components/BlogPost";
@@ -28,26 +28,45 @@ const App = () => {
       {/* <CursorFilter /> */}
       <Routes>
         <Route path="/" element={
-          <div className='relative z-0 bg-primary'>
+          <div className='relative z-0'>
+            {/* Hero Section - Landing Page with gradient background */}
             <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
               <Navbar />
               <Hero />
             </div>
-            <About />
-            <Experience />
-            <Tech />
-            <Works />
-            {/* <Feedbacks /> */}
-            {/* Interactive Chatbot Section */}
-            <div id="chatbot-section" className='relative z-0 bg-primary py-16'>
+            
+            {/* About Section - Gray background */}
+            <AnimatedSection isGray={true} delay={0.1}>
+              <About />
+            </AnimatedSection>
+            
+            {/* Experience Section - Dark background */}
+            <AnimatedSection isGray={false} delay={0.2}>
+              <Experience />
+            </AnimatedSection>
+            
+            {/* Works Section - Gray background */}
+            <AnimatedSection isGray={true} delay={0.3}>
+              <Works />
+            </AnimatedSection>
+            
+            {/* Interactive Chatbot Section - Dark background */}
+            <AnimatedSection 
+              id="chatbot-section" 
+              isGray={false} 
+              className='py-16' 
+              delay={0.4}
+            >
               <div className='max-w-7xl mx-auto px-6'>
                 <Chatbot />
               </div>
-            </div>
-            <div className='relative z-0'>
+            </AnimatedSection>
+            
+            {/* Contact Section - Gray background */}
+            <AnimatedSection isGray={true} delay={0.5}>
               <Contact />
-              <StarsCanvas />
-            </div>
+            </AnimatedSection>
+            
             <Footer />
           </div>
         } />

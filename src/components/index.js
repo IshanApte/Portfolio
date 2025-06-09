@@ -1,4 +1,4 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+import { EarthCanvas, BallCanvas, ComputersCanvas } from './canvas';
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
@@ -10,6 +10,7 @@ import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import CursorFilter from "./CursorFilter";
 import LandingPage from "./LandingPage";
+import AnimatedSection from "./AnimatedSection";
 
 
 export {
@@ -24,8 +25,8 @@ export {
   CanvasLoader,
   EarthCanvas, 
   BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas,
+  ComputersCanvas,
   CursorFilter,
-  LandingPage
+  LandingPage,
+  AnimatedSection
 };

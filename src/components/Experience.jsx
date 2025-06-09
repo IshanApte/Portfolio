@@ -55,14 +55,46 @@ const ExperienceCard = ({ experience }) => {
       </div>
 
       <ul className='mt-5 list-disc ml-5 space-y-2'>
-        {experience.points.map((point, index) => (
-          <li
-            key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
-          >
-            {point}
-          </li>
-        ))}
+        {experience.points.map((point, index) => {
+          // Function to bold important words
+          const boldImportantWords = (text) => {
+            const importantWords = [
+              // Technologies & Frameworks
+              'iOS', 'SwiftUI', 'MapKit', 'CoreLocation', 'ReactJs', 'Bootstrap', 'MERN Stack',
+              // Programming Languages
+              'Python', 'JavaScript', 'C\\+\\+', 'SQL',
+              // AI/ML Terms
+              'Convolutional Neural Network', 'CNN', 'Machine Learning', 'AI', 'NLP', 
+              'Sentiment Analysis', 'Neural Network',
+              // Databases & Tools
+              'MongoDB', 'Database', 'Docker', 'Git',
+              // Concepts
+              'user testing', 'user experience', 'front-end', 'API', 'OAuth', 'authentication',
+              // Achievements & Metrics
+              '88% accuracy', '20\\+ peers', '5 key features', 'Runner Up', 'Published',
+              // Academic Subjects
+              'Applied Algorithms', 'Advanced Database Concepts', 'Knowledge based AI', 
+              'Software Engineering',
+              // Events & Recognition
+              'PICT Hackathon 2022', 'Talk', 'Web Development'
+            ];
+            
+            let formattedText = text;
+            importantWords.forEach(word => {
+              const regex = new RegExp(`\\b${word}\\b`, 'gi');
+              formattedText = formattedText.replace(regex, `<strong>$&</strong>`);
+            });
+            return formattedText;
+          };
+
+          return (
+            <li
+              key={`experience-point-${index}`}
+              className='text-white-100 text-[14px] pl-1 tracking-wider'
+              dangerouslySetInnerHTML={{ __html: boldImportantWords(point) }}
+            />
+          );
+        })}
       </ul>
     </VerticalTimelineElement>
   );
@@ -76,7 +108,7 @@ const Experience = () => {
           What I have done so far
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Education & Work Experience.
+          <span style={{ color: '#003366' }}>Education</span> & <span style={{ color: '#014d4e' }}>Work Experience</span>.
         </h2>
       </motion.div>
 
