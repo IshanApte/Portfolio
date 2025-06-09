@@ -1,10 +1,10 @@
 import React from 'react';
-import Chatbot from "./Chatbot";
+import LandingPage from "./LandingPage";
 
 const Hero = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto flex items-center justify-center`}>
-      <Chatbot />
+    <section className={`relative w-full h-screen mx-auto`}>
+      <LandingPage />
     </section>
   );
 };

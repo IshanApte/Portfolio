@@ -9,6 +9,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import CursorFilter from "./CursorFilter";
+import LandingPage from "./LandingPage";
 
 
 export {
@@ -25,5 +26,6 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  CursorFilter
+  CursorFilter,
+  LandingPage
 };

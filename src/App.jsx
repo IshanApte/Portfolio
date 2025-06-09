@@ -5,13 +5,22 @@ import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, Stars
 import Footer from "./components/Footer";
 import BlogLayout from "./components/BlogLayout";
 import BlogPost from "./components/BlogPost";
-// import BlogLayout from "./components/BlogLayout";
-// import BlogPost from "./components/BlogPost";
+import Chatbot from "./components/Chatbot";
 
 const App = () => {
   useEffect(() => {
+    // Ensure page always starts at the top
     window.history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    
+    // Also handle any route changes
+    const handleRouteChange = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    
+    return () => {
+      // Cleanup if needed
+    };
   }, []);
 
   return (
@@ -29,6 +38,12 @@ const App = () => {
             <Tech />
             <Works />
             {/* <Feedbacks /> */}
+            {/* Interactive Chatbot Section */}
+            <div id="chatbot-section" className='relative z-0 bg-primary py-16'>
+              <div className='max-w-7xl mx-auto px-6'>
+                <Chatbot />
+              </div>
+            </div>
             <div className='relative z-0'>
               <Contact />
               <StarsCanvas />

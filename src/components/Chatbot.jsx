@@ -11,10 +11,11 @@ const Chatbot = () => {
   const [isAIEnabled, setIsAIEnabled] = useState(false);
   const [displayedSuggestions, setDisplayedSuggestions] = useState([]);
   const [remainingSuggestions, setRemainingSuggestions] = useState([]);
-  const [showIntroSlide, setShowIntroSlide] = useState(true);
   const [showChatbot, setShowChatbot] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const hasLoadedIntro = useRef(false);
   const messagesEndRef = useRef(null);
+  const chatbotRef = useRef(null);
 
   const introMessages = [
     { from: 'bot', text: "Hi there! 👋" },
@@ -137,68 +138,57 @@ const Chatbot = () => {
     // Initialize suggestions
     initializeSuggestions();
     
-    // Add scroll listener for intro disappear effect
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      
-      // If user starts scrolling, immediately hide intro and show chatbot
-      if (scrollY > 0 && showIntroSlide) {
-        setShowIntroSlide(false);
-        // Lock scroll at top and disable scrolling
-        window.scrollTo({ top: 0, behavior: 'instant' });
-        document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = '0';
-        document.body.style.width = '100%';
-        
-        setTimeout(() => setShowChatbot(true), 100);
+    // Set up intersection observer to detect when chatbot section is visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !isInView) {
+          setIsInView(true);
+          setShowChatbot(true);
+          
+          // Load intro messages when chatbot becomes visible
+          const prepareIntroMessages = async () => {
+            if (hasLoadedIntro.current) return;
+            hasLoadedIntro.current = true;
+            
+            await new Promise(resolve => setTimeout(resolve, 300));
+            
+            for (let i = 0; i < introMessages.length; i++) {
+              await new Promise(resolve => setTimeout(resolve, i === 0 ? 500 : 1000));
+              setMessages(prev => [...prev, introMessages[i]]);
+            }
+            
+            // Add AI status message if enabled
+            if (openaiService.isAIEnabled()) {
+              await new Promise(resolve => setTimeout(resolve, 500));
+              setMessages(prev => [...prev, { 
+                from: 'bot', 
+                text: "🤖 **AI-Enhanced Mode**: I'm powered by OpenAI for more intelligent responses!"
+              }]);
+            }
+            
+            setShowSuggestions(true);
+          };
+          
+          prepareIntroMessages();
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the chatbot is visible
+        rootMargin: '0px 0px -100px 0px' // Start loading a bit before it's fully visible
       }
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll);
-    
-    // Prepare intro messages for when chatbot becomes visible
-    const prepareIntroMessages = async () => {
-      // Load intro messages (but only show if chatbot is visible)
-      if (hasLoadedIntro.current) return;
-      hasLoadedIntro.current = true;
-      
-      await new Promise(resolve => setTimeout(resolve, 300));
-      
-      for (let i = 0; i < introMessages.length; i++) {
-        await new Promise(resolve => setTimeout(resolve, i === 0 ? 500 : 1000));
-        setMessages(prev => [...prev, introMessages[i]]);
-      }
-      
-      // Add AI status message if enabled
-      if (openaiService.isAIEnabled()) {
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setMessages(prev => [...prev, { 
-          from: 'bot', 
-          text: "🤖 **AI-Enhanced Mode**: I'm powered by OpenAI for more intelligent responses!"
-        }]);
-      }
-      
-      setShowSuggestions(true);
-      
-      // Re-enable scrolling after chatbot is fully loaded
-      await new Promise(resolve => setTimeout(resolve, 500));
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-    };
-    
-    // Only load messages when chatbot is shown
-    if (showChatbot) {
-      prepareIntroMessages();
+    if (chatbotRef.current) {
+      observer.observe(chatbotRef.current);
     }
 
-    // Cleanup scroll listener
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      if (chatbotRef.current) {
+        observer.unobserve(chatbotRef.current);
+      }
     };
-  }, [showIntroSlide, showChatbot]);
+  }, [isInView]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -324,81 +314,22 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto flex flex-col h-[80vh] text-white space-y-6 relative">
+    <div ref={chatbotRef} className="w-full max-w-4xl mx-auto flex flex-col h-[80vh] text-white space-y-6 relative">
       <AnimatePresence mode="wait">
-        {/* Intro Slide */}
-        {showIntroSlide && (
+        {/* Chatbot Placeholder */}
+        {!showChatbot && (
           <motion.div
-            key="intro"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ 
-              duration: 0.8,
-              ease: "easeOut"
-            }}
-
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center backdrop-blur-sm border border-blue-500/30"
-            style={{
-              background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 30%, #cbd5e1 100%)'
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex items-center justify-center h-full"
           >
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-center space-y-6"
-            >
-              {/* Main Greeting */}
-              <motion.h1
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-4xl md:text-5xl font-bold drop-shadow-lg text-center"
-                style={{ color: '#0f172a' }}
-              >
-                Hi, I'm Ishan Apte
-              </motion.h1>
-              
-              {/* Role Titles */}
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="text-xl md:text-2xl font-medium drop-shadow-md text-center"
-                style={{ color: '#1e40af' }}
-              >
-                AI Engineer & Software Developer
-              </motion.p>
-              
-              {/* Description */}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-                className="text-lg md:text-xl max-w-lg mx-auto drop-shadow-md text-center space-y-2"
-                style={{ color: '#334155' }}
-              >
-                <p>I hope you enjoy finding out about me</p>
-                <p className="text-2xl font-bold" style={{ color: '#059669' }}>&</p>
-                <p>exploring the weird and wonderful things I've built</p>
-              </motion.div>
-              
-              {/* Loading indicator */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
-                className="flex justify-center space-x-1 mt-8"
-              >
-                <div className="w-2 h-2 bg-blue-700 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-green-700 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-              </motion.div>
-            </motion.div>
+            <div className="text-center space-y-4">
+              <div className="text-2xl">💬</div>
+              <p className="text-gray-400">Interactive chat will load when you scroll here...</p>
+            </div>
           </motion.div>
         )}
-
+        
         {/* Chatbot Interface */}
         {showChatbot && (
           <motion.div
@@ -506,36 +437,6 @@ const Chatbot = () => {
                   {isLoading ? '...' : 'Send'}
                 </button>
               </div>
-              
-              {/* Explore Website Arrow */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="flex items-center justify-center space-x-2 cursor-pointer group"
-                onClick={() => {
-                  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-                }}
-              >
-                <span className="text-gray-400 text-sm group-hover:text-blue-300 transition-colors">
-                  explore the website the old school way
-                </span>
-                <motion.svg
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-5 h-5 text-gray-400 group-hover:text-blue-300 transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                  />
-                </motion.svg>
-              </motion.div>
             </div>
           </motion.div>
         )}
