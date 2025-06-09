@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, CursorFilter} from "./components";
@@ -8,6 +9,11 @@ import BlogPost from "./components/BlogPost";
 // import BlogPost from "./components/BlogPost";
 
 const App = () => {
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <BrowserRouter>
       {/* <CursorFilter /> */}

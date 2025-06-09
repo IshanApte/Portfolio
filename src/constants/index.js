@@ -51,25 +51,25 @@ export const navLinks = [
   //   href: "/blog",
   //   color: "text-[#2962FF]",
   // },
-  // {
-  //   id: "resume",
-  //   title: "Resume",
-  //   color: "blue-text-gradient",
-  //   subLinks: [
-  //     {
-  //       id: "resume-swe",
-  //       title: "Software Developer",
-  //       href: "/IshanApte_SDE_Resume.pdf",
-  //       target: "_blank",
-  //     },
-  //     {
-  //       id: "resume-ai",
-  //       title: "AI / ML",
-  //       href: "/IshanApte_AI_Resume.pdf",
-  //       target: "_blank",
-  //     },
-  //   ],
-  // }
+  {
+    id: "resume",
+    title: "Resume",
+    color: "blue-text-gradient",
+    subLinks: [
+      {
+        id: "resume-swe",
+        title: "Software Developer",
+        href: "/IshanApte_SDE_Resume.pdf",
+        target: "_blank",
+      },
+      {
+        id: "resume-ai",
+        title: "AI / ML",
+        href: "/IshanApte_AI_Resume.pdf",
+        target: "_blank",
+      }
+    ],
+  }
 ];
 
 const services = [
