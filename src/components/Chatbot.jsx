@@ -336,14 +336,11 @@ const Chatbot = () => {
             key="chatbot"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="flex flex-col h-full space-y-6"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col h-full"
           >
-            {/* Messages - Floating */}
-            <div className="flex-1 p-4 overflow-y-auto scroll-smooth">
+            {/* Messages */}
+            <div className="flex-1 p-6 overflow-y-auto scroll-smooth">
               <AnimatePresence>
                 {messages.map((msg, index) => (
                   <motion.div
@@ -351,36 +348,36 @@ const Chatbot = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className={`flex my-4 ${msg.from === 'bot' ? 'justify-start' : 'justify-end'}`}
+                    className={`flex my-2 ${msg.from === 'bot' ? 'justify-start' : 'justify-end'}`}
                   >
                     <div
-                      className={`p-4 rounded-2xl max-w-xs lg:max-w-md shadow-lg ${
+                      className={`px-4 py-2 max-w-xs lg:max-w-md text-base font-medium shadow-md transition-all duration-200 ${
                         msg.from === 'bot'
-                          ? 'bg-blue-600 bg-opacity-90 backdrop-blur-sm'
-                          : 'bg-gray-700 bg-opacity-90 backdrop-blur-sm'
+                          ? 'bg-white text-gray-900 rounded-2xl' // bot bubble
+                          : 'bg-[#007AFF] text-white rounded-2xl' // user bubble
                       }`}
+                      style={{ borderRadius: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}
                     >
-                      <div 
-                        className="text-sm leading-relaxed"
+                      <div
+                        className="leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: formatMessage(msg.text) }}
                       />
                     </div>
                   </motion.div>
                 ))}
-                
                 {/* Loading indicator */}
                 {isLoading && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="flex justify-start my-4"
+                    className="flex justify-start my-2"
                   >
-                    <div className="p-4 rounded-2xl bg-blue-600 bg-opacity-90 backdrop-blur-sm">
+                    <div className="px-4 py-2 bg-white text-gray-900 rounded-2xl shadow-md" style={{ borderRadius: 20, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
                       <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                       </div>
                     </div>
                   </motion.div>
@@ -391,23 +388,17 @@ const Chatbot = () => {
 
             {/* Suggested Questions */}
             {showSuggestions && !isLoading && displayedSuggestions.length > 0 && (
-              <div className="px-4">
-                <div className="flex gap-2 justify-end flex-wrap mb-4">
+              <div className="px-6 pb-2">
+                <div className="flex gap-2 justify-end flex-wrap mb-2">
                   {displayedSuggestions.map((question, index) => (
                     <motion.button
                       key={`${question.display}-${index}`}
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                      transition={{ 
-                        delay: index * 0.1,
-                        duration: 0.3,
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20
-                      }}
+                      transition={{ delay: index * 0.1, duration: 0.3, type: "spring", stiffness: 300, damping: 20 }}
                       onClick={() => handleSuggestedQuestion(question.fullQuestion, index)}
-                      className="px-4 py-2 bg-gray-500 bg-opacity-60 backdrop-blur-sm text-white rounded-full text-sm hover:bg-opacity-80 hover:scale-105 transition-all duration-200 border border-gray-400 disabled:opacity-50 transform"
+                      className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm hover:bg-gray-300 transition-all duration-200 border border-gray-300 disabled:opacity-50 min-h-[44px] min-w-[44px]"
                       disabled={isLoading}
                     >
                       {question.display}
@@ -417,24 +408,27 @@ const Chatbot = () => {
               </div>
             )}
 
-            {/* Input - Floating */}
-            <div className="space-y-3 mx-4">
-              <div className="p-4 flex bg-gray-800 bg-opacity-30 backdrop-blur-sm rounded-full shadow-lg">
+            {/* Input Bar */}
+            <div className="p-4" style={{background: 'transparent'}}>
+              <div className="flex items-center rounded-full shadow-md px-4 py-2 min-h-[44px] border-2 border-blue-400" style={{background: 'transparent'}}>
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder={isLoading ? "Processing..." : "Ask about skills, projects..."}
-                  className="flex-1 p-3 rounded-l-full bg-transparent text-white placeholder-gray-300 focus:outline-none disabled:opacity-50"
+                  placeholder={isLoading ? "Processing..." : "Type a message..."}
+                  className="flex-1 border-none outline-none bg-transparent px-2 py-2 text-gray-900 text-base placeholder-gray-400 rounded-full"
                   disabled={isLoading}
+                  style={{ minHeight: 40 }}
                 />
                 <button
                   onClick={handleSend}
-                  className="px-6 py-3 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors focus:outline-none shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="ml-2 bg-[#007AFF] text-white rounded-full w-11 h-11 flex items-center justify-center shadow-md hover:bg-blue-700 transition-colors focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={isLoading || inputValue.trim() === ''}
+                  style={{ minWidth: 44, minHeight: 44 }}
                 >
-                  {isLoading ? '...' : 'Send'}
+                  {/* Paper plane icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
                 </button>
               </div>
             </div>
