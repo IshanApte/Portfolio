@@ -149,7 +149,7 @@ const LandingPage = () => {
               )}
             </div>
           </motion.div>
-
+          
           {/* Handwritten-style scroll suggestion */}
           <motion.div
             initial={{ opacity: 0, rotate: -5 }}

@@ -42,14 +42,14 @@ const App = () => {
               <About />
             </AnimatedSection> */}
             
-            {/* Experience Section - Dark background */}
+            {/* Works Section - Dark background (originally Experience) */}
             <AnimatedSection isGray={false} delay={0.2}>
-              <Experience />
+              <Works />
             </AnimatedSection>
             
-            {/* Works Section - Gray background */}
+            {/* Experience Section - Gray background (originally Works) */}
             <AnimatedSection isGray={true} delay={0.3}>
-              <Works />
+              <Experience />
             </AnimatedSection>
             
             <span className="hash-span" id="chatbot-section">&nbsp;</span>
