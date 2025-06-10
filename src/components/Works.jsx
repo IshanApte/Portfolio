@@ -9,12 +9,6 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const tagColorMap = {
-  "blue-text-gradient": "bg-blue-100 text-blue-800",
-  "green-text-gradient": "bg-green-100 text-green-800",
-  "pink-text-gradient": "bg-pink-100 text-pink-800",
-};
-
 const ProjectCard = ({
   name,
   description,
@@ -63,9 +57,9 @@ const ProjectCard = ({
             {tags.map((tag) => (
               <p
                 key={`${name}-${tag.name}`}
-                className={`text-[14px] ${tag.color}`}
+                className='px-3 py-1 bg-gray-200 text-gray-800 text-sm font-medium rounded-full'
               >
-                #{tag.name}
+                {tag.name}
               </p>
             ))}
           </div>

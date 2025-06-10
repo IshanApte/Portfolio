@@ -4,7 +4,8 @@ import { Link as ScrollLink } from 'react-scroll';  // Import from react-scroll
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { menu, close } from "../assets";
+import logo from '../assets/LOGO.png';
 
 // Helper component for dropdown menu
 const DropdownMenu = ({ subLinks }) => {
