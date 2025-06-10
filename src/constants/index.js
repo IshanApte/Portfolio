@@ -25,6 +25,7 @@ import planningImage from '../assets/planning.png';
 // import plantImage from '../assets/plant.png';
 import bloomingtonBuzzImage from '../assets/BloomingtonBuzz.png';
 import superAgentImage from '../assets/gmailagent.png';
+import brainstormAIImage from '../assets/BrainstormAI.png';
 // import resumefile from '/IshanApteResume.pdf';
 
 
@@ -33,12 +34,12 @@ export const navLinks = [
   {
     id: "about",
     title: "About",
-    href: "about",
+    href: "top",
   },
   {
-    id: "work",
-    title: "Work",
-    href: "work",
+    id: "projects",
+    title: "Selected Works",
+    href: "projects",
   },
   {
     id: "contact",
@@ -242,109 +243,61 @@ const testimonials = [
 
 const projects = [
   {
-    name: "SportConnect",
-    description:
-    "Full-stack MERN social application enabling users to connect based on shared sports interests.",
+    name: "Brainstorm AI",
+    impact: "A system designed to reduce AI pandering and simulate the candid, creative energy of brainstorming with friends.",
+    description: "Engineered a stateful agent using LangGraph to create cyclical and conditional workflows, enabling the AI to dynamically select the appropriate tool based on conversational context.",
     tags: [
-      {
-        name: "MERN Stack",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Docker",
-        color: "green-text-gradient",
-      },
-      {
-        name: "CI/CD pipelines",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "OAuth",
-        color: "blue-text-gradient",
-      },
+      { name: "Node.js", color: "blue-text-gradient" },
+      { name: "LangChain.js", color: "green-text-gradient" },
+      { name: "RESTful APIs", color: "pink-text-gradient" },
     ],
-    image: sportsImage, // Keep if this is the correct image
-    source_code_link: "https://github.com/IshanApte/SportsConnect", // Update if necessary
-  },
-  {
-    name: "EventCraft",
-    description:
-    "CBR system for IMU Catering, automating logistical planning for events.",
-    tags: [
-      {
-        name: "Python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Case-Based Reasoning",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Tkinter",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Pandas",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: planningImage, // Keep if this is the correct image
-    source_code_link: "https://github.com/IshanApte/Event_Planning", // Update if necessary
+    image: brainstormAIImage,
+    source_code_link: "https://github.com/IshanApte/BrainstormAI",
+    live_demo_link: "",
+    case_study_link: "",
   },
   {
     name: "BloomingtonBuzz",
-    description:
-    "iOS event discovery app for Indiana University.",
+    impact: "An iOS mobile app for real-time event discovery at Indiana University.",
+    description: "Developed using SwiftUI, this app features interactive mapping with MapKit and personalized, location-based event recommendations via CoreLocation, tested with over 20 peers.",
     tags: [
-      {
-        name: "SwiftUI",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "CoreLocation",
-        color: "green-text-gradient",
-      },
-      {
-        name: "MapKit",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "MVVM",
-        color: "blue-text-gradient",
-      },
+      { name: "SwiftUI", color: "blue-text-gradient" },
+      { name: "MapKit", color: "green-text-gradient" },
+      { name: "CoreLocation", color: "pink-text-gradient" },
     ],
     image: bloomingtonBuzzImage,
-    source_code_link: "https://github.com/IshanApte/BloomingtonBuzz", // Update with actual link
+    source_code_link: "https://github.com/IshanApte/BloomingtonBuzz",
+    live_demo_link: "",
+    case_study_link: "",
   },
   {
-    name: "Super Agent Project",
-    description:
-    "Advanced NLP system for intent detection using OpenAI's GPT-3.5.",
+    name: "SportConnect",
+    impact: "A full-stack MERN social application enabling users to connect based on shared sports interests.",
+    description: "Features secure JWT & OAuth authentication, real-time chat, and robust RESTful APIs handling high user request volumes.",
     tags: [
-      {
-        name: "Python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Node.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "NLP (GPT-3.5)",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "RESTful APIs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "OAuth2",
-        color: "green-text-gradient",
-      },
+      { name: "MERN Stack", color: "blue-text-gradient" },
+      { name: "Docker", color: "green-text-gradient" },
+      { name: "Socket.io", color: "pink-text-gradient" },
     ],
-    image: superAgentImage,
-    source_code_link: "https://github.com/IshanApte/SuperAgent", // Update with actual link
+    image: sportsImage,
+    source_code_link: "https://github.com/IshanApte/SportsConnect",
+    // live_demo_link: "https://sport-connect.onrender.com/",
+    case_study_link: "https://medium.com/@ishanapte/sportconnect-connecting-sports-enthusiasts-through-a-full-stack-mern-application-36946979568b",
   },
-];
+  {
+    name: "EventCraft",
+    impact: "A responsive event management web application built with the MERN stack.",
+    description: "Streamlines event creation and management with an intuitive interface, ensuring seamless user interaction and data handling across various devices.",
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "MongoDB", color: "green-text-gradient" },
+      { name: "Node.js", color: "pink-text-gradient" },
+    ],
+    image: planningImage,
+    source_code_link: "https://github.com/IshanApte/EventCraft",
+    live_demo_link: "",
+    case_study_link: "",
+  },
+] ;
 
 export { services, technologies, experiences, testimonials, projects };

@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { navLinks } from '../constants';
+import { github } from '../assets';
+import linkedin from '../assets/linkedin.svg';
+import resumeIcon from '../assets/resume.svg';
 
 const LandingPage = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
   const handleExploreClick = () => {
     // Scroll to the chatbot section
-    const chatbotSection = document.getElementById('chatbot-section');
-    if (chatbotSection) {
-      chatbotSection.scrollIntoView({ 
+    const chatbotContainer = document.getElementById('chatbot-container');
+    if (chatbotContainer) {
+      chatbotContainer.scrollIntoView({ 
         behavior: 'smooth',
-        block: 'start'
+        block: 'center'
       });
     }
   };
 
+  const toggleResume = () => {
+    setIsResumeOpen(prev => !prev);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsResumeOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const resumeLink = navLinks.find(link => link.id === 'resume');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-6">
+    <div className="min-h-screen flex items-center justify-center px-6">
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -75,6 +101,55 @@ const LandingPage = () => {
             </span>
           </button>
           
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
+            className="flex justify-center items-center space-x-6 pt-4"
+          >
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/in/ishan-apte-1489a9213/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
+              <img src={linkedin} alt="LinkedIn" className="w-8 h-8"/>
+            </a>
+
+            {/* GitHub */}
+            <a href="https://github.com/IshanApte" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
+               <img src={github} alt="GitHub" className="w-8 h-8 p-1 bg-black rounded-full" />
+            </a>
+
+            {/* Resume Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button onClick={toggleResume} className="hover:opacity-75 transition-opacity">
+                <img src={resumeIcon} alt="Resume" className="w-8 h-8" />
+              </button>
+              {isResumeOpen && resumeLink && resumeLink.subLinks && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200"
+                >
+                  <ul>
+                    {resumeLink.subLinks.map((subLink, index) => (
+                      <li key={index}>
+                        <a
+                          href={subLink.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                          onClick={() => setIsResumeOpen(false)}
+                        >
+                          {subLink.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
+
           {/* Handwritten-style scroll suggestion */}
           <motion.div
             initial={{ opacity: 0, rotate: -5 }}

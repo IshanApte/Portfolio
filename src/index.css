@@ -232,3 +232,12 @@
   background: #151030;
 }
 
+.animated-gradient-background {
+  background: radial-gradient(
+    ellipse at center,
+    #f0f8ff 0%, /* AliceBlue at the very center */
+    #e0f7fa 30%, /* Pale Cyan */
+    #b3e5fc 100% /* Light Sky Blue at the edges */
+  );
+}
+

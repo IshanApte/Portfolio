@@ -33,10 +33,10 @@ const ServiceCard = ({ index, title, icon }) => (
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      {/* <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
+      </motion.div> */}
 
       {/* Responsive layout for image and text */}
       <div className='flex flex-col lg:flex-row items-center lg:items-start mt-4'>
@@ -44,7 +44,7 @@ const About = () => {
         
 
         {/* Overview paragraph */}
-        <motion.p
+        {/* <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
@@ -52,7 +52,7 @@ const About = () => {
           While I have broad expertise in <span className="font-semibold">full-stack development</span> using <span className="font-semibold">Python</span>, <span className="font-semibold">JavaScript</span>, and the <span className="font-semibold">MERN stack</span>, my recent focus has been on <span className="font-semibold">AI and Machine Learning</span>. 
           I've developed solutions involving <span className="font-semibold">NLP (GPT-3.5, RAG)</span>, <span className="font-semibold">Case-Based Reasoning</span>, and <span className="font-semibold">Computer Vision (CNNs)</span>, utilizing libraries like <span className="font-semibold">Langchain</span>, <span className="font-semibold">PyTorch</span>, and <span className="font-semibold">TensorFlow</span>. 
           From architecting social platforms to automating planning processes with AI, I enjoy creating <span className="font-semibold">efficient</span>, <span className="font-semibold">scalable</span>, and <span className="font-semibold">user-centric software</span>.
-        </motion.p>
+        </motion.p> */}
 
 
         <img

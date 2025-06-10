@@ -8,10 +8,7 @@ const AnimatedSection = ({
   id = '',
   delay = 0 
 }) => {
-  const baseClasses = "relative z-0 transition-colors duration-1000 ease-in-out";
-  const backgroundClass = isGray 
-    ? "bg-gradient-to-br from-gray-50 to-gray-100" 
-    : "bg-primary";
+  const baseClasses = "relative z-0";
 
   return (
     <motion.section
@@ -24,7 +21,7 @@ const AnimatedSection = ({
         delay: delay,
         ease: "easeOut" 
       }}
-      className={`${baseClasses} ${backgroundClass} ${className}`}
+      className={`${baseClasses} ${className}`}
     >
       <motion.div
         initial={{ opacity: 0 }}
