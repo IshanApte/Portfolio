@@ -118,17 +118,37 @@ const LandingPage = () => {
                <img src={github} alt="GitHub" className="w-8 h-8 p-1 bg-black rounded-full" />
             </a>
 
-            {/* Resume Icon as direct link */}
-            { sdeResume && (
-              <a
-                href={sdeResume.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-75 transition-opacity"
-              >
+            {/* Resume Dropdown Icon */}
+            <div className="relative" ref={dropdownRef}>
+              <button onClick={() => setIsResumeOpen(prev => !prev)} className="hover:opacity-75 transition-opacity">
                 <img src={resumeIcon} alt="Resume" className="w-8 h-8" />
-              </a>
-            )}
+              </button>
+              {isResumeOpen && resumeLink && resumeLink.subLinks && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200"
+                >
+                  <ul>
+                    {resumeLink.subLinks.map((subLink, index) => (
+                      <li key={index}>
+                        <a
+                          href={subLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                          onClick={() => setIsResumeOpen(false)}
+                        >
+                          {subLink.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </div>
           </motion.div>
           
           {/* Handwritten-style scroll suggestion */}
