@@ -171,21 +171,21 @@ const experiences = [
     ],
   },
   {
-    title: "Research Assistant Intern",
+    title: "Machine Learning Engineer",
     company_name: "Pune Institute of Computer Technology",
     icon: pictLogo,
     iconBg: "#ffffff",
-    date: "Jan 2022 - Jan 2023",
+    date: "Jan 2023 - Aug 2023",
     type: "work",
     points: [
       "Implemented a Convolutional Neural Network for weather condition classification with an 88% accuracy, contributing key findings to the project",
     ],
   },
   {
-    title: "Web Developer Intern",
-    company_name: "Finquest (Indian Economics Updates)",
+    title: "Web Developer",
+    company_name: "FinQuest India",
     iconBg: "#ffffff",
-    date: "June 2021 - September 2021",
+    date: "Jan 2022 - Sep 2022",
     type: "work",
     points: [
       "Designed the front-end of a website that showcases news articles produced by FinQuest",

@@ -37,7 +37,7 @@ export const knowledgeBase = [
   
     {
       keywords: ["weather", "cnn", "computer vision", "88% accuracy", "machine learning paper", "research"],
-      answer: `🧠 **Weather Classification Research** (Feb 2022 - May 2022):
+      answer: `🧠 **Weather Classification Research** (Jan 2023 - Aug 2023):
   
   • **Convolutional Neural Network** achieving **88% accuracy**
   • **5,000+ weather images** processed for training
@@ -130,8 +130,8 @@ export const knowledgeBase = [
   • **20+ user testing sessions** with continuous feedback integration
   
   **Previous Experience**:
-  • **Research Assistant** | PICT (Feb 2022 - May 2022): CNN weather classification
-  • **Web Developer Intern** | Finquest: Front-end development with Bootstrap & React
+  • **Machine Learning Engineer** | PICT (Jan 2023 - Aug 2023): CNN weather classification
+  • **Web Developer** | FinQuest India (Jan 2022 - Sep 2022): Front-end development with Bootstrap & React
   
   🏢 [View Experience Timeline](#experience) | 💼 [Connect Professionally](https://www.linkedin.com/in/ishan-apte-1489a9213/)`,
       suggestions: ["Tell me about his education", "What projects is he working on?", "How can I contact him?"]
