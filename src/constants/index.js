@@ -26,6 +26,7 @@ import planningImage from '../assets/planning.png';
 import bloomingtonBuzzImage from '../assets/BloomingtonBuzz.png';
 import superAgentImage from '../assets/gmailagent.png';
 import brainstormAIImage from '../assets/BrainstormAI.png';
+import remindImage from '../assets/remind.png'; // placeholder - update when image is provided
 // import resumefile from '/IshanApteResume.pdf';
 
 
@@ -242,6 +243,20 @@ const testimonials = [
 // ... (navLinks, services, technologies, experiences, testimonials arrays)
 
 const projects = [
+  {
+    name: "ReMind",
+    impact: "A dynamic memory system for AI that adapts to topic flow, keeping retrieval aligned with the current conversation context.",
+    description: "Built a hybrid retrieval system combining semantic similarity with temporal decay, reinforcing frequently accessed spans to keep relevant parts of large documents 'on top'. Features a chat interface with book heatmap visualization and confidence scoring for every answer.",
+    tags: [
+      { name: "RAG", color: "blue-text-gradient" },
+      { name: "Next.js", color: "green-text-gradient" },
+      { name: "LangChain", color: "pink-text-gradient" },
+    ],
+    image: remindImage,
+    source_code_link: "https://github.com/IshanApte/ReMind",
+    live_demo_link: "", // placeholder for live demo
+    case_study_link: "",
+  },
   {
     name: "Brainstorm AI",
     impact: "A system designed to reduce AI pandering and simulate the candid, creative energy of brainstorming with friends.",

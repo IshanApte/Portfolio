@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 // import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
-import Marquee from "react-fast-marquee";
 
 import { styles } from "../styles";
 import { github } from "../assets";
@@ -79,6 +78,20 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const scrollRef = useRef(null);
+
+  const scrollNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+    }
+  };
+
+  const scrollPrev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -380, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -94,15 +107,50 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7 justify-center'>
-        {projects.slice(0, 3).map((project, index) => (
-          <motion.div
-            key={`project-${index}`}
-            variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-          >
-            <ProjectCard {...project} />
-          </motion.div>
-        ))}
+      <div className='mt-20 relative'>
+        {/* Scroll container */}
+        <div
+          ref={scrollRef}
+          className='flex gap-7 overflow-x-auto pb-4 scrollbar-hide'
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {projects.map((project, index) => (
+            <div
+              key={`project-${index}`}
+              className='flex-shrink-0'
+            >
+              <ProjectCard {...project} />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation arrows */}
+        <button
+          onClick={scrollPrev}
+          className='absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4
+                     w-10 h-10 bg-slate-800 text-white rounded-full
+                     flex items-center justify-center shadow-lg
+                     hover:bg-slate-900 transition-colors duration-300
+                     hover:scale-110 z-10'
+          aria-label="Previous project"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <button
+          onClick={scrollNext}
+          className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-4
+                     w-10 h-10 bg-slate-800 text-white rounded-full
+                     flex items-center justify-center shadow-lg
+                     hover:bg-slate-900 transition-colors duration-300
+                     hover:scale-110 z-10'
+          aria-label="Next project"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
       </div>
 
       <div className="mt-16 text-center">
