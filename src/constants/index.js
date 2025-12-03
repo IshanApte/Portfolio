@@ -252,9 +252,9 @@ const projects = [
       { name: "Next.js", color: "green-text-gradient" },
       { name: "LangChain", color: "pink-text-gradient" },
     ],
-    image: remindImage,
-    source_code_link: "https://github.com/IshanApte/ReMind",
-    live_demo_link: "", // placeholder for live demo
+  image: remindImage,
+  source_code_link: "https://github.com/IshanApte/ReMind",
+  live_demo_link: "https://remind-iota.vercel.app/",
     case_study_link: "",
   },
   {

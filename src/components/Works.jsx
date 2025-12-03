@@ -17,13 +17,17 @@ const ProjectCard = ({
   live_demo_link,
 }) => {
 
-  const handleInnerLinkClick = (e, url) => {
+  const handleGitHubClick = (e) => {
     e.preventDefault(); // Prevent the parent link from navigating
-    window.open(url, '_blank', 'noopener,noreferrer');
+    e.stopPropagation();
+    window.open(source_code_link, '_blank', 'noopener,noreferrer');
   };
 
+  // Use live demo link as main card link if available, otherwise use source code
+  const mainCardLink = live_demo_link || source_code_link;
+
   return (
-    <a href={source_code_link} target="_blank" rel="noopener noreferrer"
+    <a href={mainCardLink} target="_blank" rel="noopener noreferrer"
        className='block bg-white bg-opacity-60 p-5 rounded-2xl w-full sm:w-[360px] h-full
                     shadow-lg flex flex-col cursor-pointer
                     transition-all duration-300 ease-in-out 
@@ -36,7 +40,8 @@ const ProjectCard = ({
         />
         <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
           <div
-            className='black-gradient w-10 h-10 rounded-full flex justify-center items-center'
+            onClick={handleGitHubClick}
+            className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform'
           >
             <img src={github} alt='source code' className='w-1/2 h-1/2 object-contain' />
           </div>
@@ -65,9 +70,8 @@ const ProjectCard = ({
           
           <div className="mt-5 min-h-[28px]">
             {live_demo_link && (
-                <span onClick={(e) => handleInnerLinkClick(e, live_demo_link)}
-                   className="text-blue-600 hover:text-blue-800 font-semibold text-sm transition-colors z-10 relative">
-                    View Live Demo →
+                <span className="text-blue-600 font-semibold text-sm">
+                    Live Demo →
                 </span>
             )}
           </div>
