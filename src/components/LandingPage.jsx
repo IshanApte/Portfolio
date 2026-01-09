@@ -65,11 +65,11 @@ const LandingPage = () => {
           className="mb-6"
         >
           <div className="flex flex-wrap justify-center items-center gap-2 text-sm text-text-secondary">
-            <span>"Discovery to deployment"</span>
+            <span>"San Jose, CA"</span>
             <span>·</span>
-            <span>"AI systems & agents"</span>
+            <span>"Actively interviewing"</span>
             <span>·</span>
-            <span>"Scalable APIs & data"</span>
+            <span>"Software Engineer roles"</span>
           </div>
         </motion.div>
 
