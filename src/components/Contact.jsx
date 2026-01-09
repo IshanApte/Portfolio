@@ -19,10 +19,10 @@ const Contact = () => {
   return (
     <div className="text-center py-4 sm:py-8 px-4">
       <motion.div variants={fadeIn("up", "tween", 0.2, 1)}>
-        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-4xl sm:text-5xl font-bold text-text-primary mb-4">
           Get in Touch
         </h2>
-        <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-lg text-text-secondary mb-12 max-w-2xl mx-auto">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
         </p>
       </motion.div>
@@ -37,7 +37,7 @@ const Contact = () => {
           <span className="text-gray-800 font-mono text-lg px-3">{email}</span>
           <button
             onClick={handleCopy}
-            className="bg-white text-gray-800 font-semibold py-2 px-5 rounded-full shadow-md hover:bg-gray-50 transition-all duration-300"
+            className="bg-accent text-white font-semibold py-2 px-5 rounded-full shadow-md hover:bg-accent/90 transition-all duration-300"
           >
             {copied ? "Copied!" : "Copy"}
           </button>

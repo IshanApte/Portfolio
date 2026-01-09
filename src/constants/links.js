@@ -54,15 +54,10 @@ export const linkDatabase = {
 
   // Documents
   documents: {
-    sde_resume: {
-      url: "/IshanApte_SDE_Resume.pdf",
-      text: "Download SDE Resume",
-      description: "Software engineering focused resume"
-    },
-    ai_resume: {
-      url: "/IshanApte_AI_Resume.pdf", 
-      text: "Download AI Resume",
-      description: "AI/ML focused resume with research paper"
+    resume: {
+      url: "/IshanApte_Resume.pdf",
+      text: "Download Resume",
+      description: "Ishan Apte's resume"
     }
   },
 

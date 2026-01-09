@@ -16,7 +16,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] pt-32 px-4 sm:px-8 md:px-16 lg:px-32">
+    <div className="w-full min-h-screen bg-background pt-32 px-4 sm:px-8 md:px-16 lg:px-32">
       <motion.div 
         className="max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
@@ -24,26 +24,26 @@ const BlogPost = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="mb-8">
-          <div className="flex items-center gap-4 mb-2 text-sm text-gray-500">
-            <span className="text-[#2962FF]">{post.date}</span>
+          <div className="flex items-center gap-4 mb-2 text-sm text-text-secondary">
+            <span className="text-accent">{post.date}</span>
           </div>
           
-          <h1 className="text-4xl font-normal text-gray-900 mb-2">
+          <h1 className="text-4xl font-normal text-text-primary mb-2">
             {post.id}. {post.title}
           </h1>
           
-          <p className="text-gray-600 text-xl font-light mb-4">
+          <p className="text-text-secondary text-xl font-light mb-4">
             {post.subtitle}
           </p>
           
-          <p className="text-[#2962FF] text-sm font-medium mb-12">
+          <p className="text-accent text-sm font-medium mb-12">
             By Ishan Apte
           </p>
         </div>
 
         <article className="prose prose-lg max-w-none">
           {post.content.split('\n').map((paragraph, index) => (
-            <p key={index} className="text-gray-800 mb-6 leading-relaxed">
+            <p key={index} className="text-text-primary mb-6 leading-relaxed">
               {paragraph.trim()}
             </p>
           ))}

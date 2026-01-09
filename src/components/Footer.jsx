@@ -6,7 +6,7 @@ import { nodejs, threejs, tailwind } from "../assets";
 const Footer = () => {
 
   return (
-    <footer className={`${styles.paddingX} w-full py-5 bg-primary text-white`}>
+    <footer className={`${styles.paddingX} w-full py-5 bg-background`}>
       <div className="w-full flex justify-center items-center max-w-7xl mx-auto">
         {/* Center with logo and info */}
         <div className="flex flex-col items-center">
@@ -15,7 +15,7 @@ const Footer = () => {
             className="flex items-center gap-2"
             onClick={() => window.scrollTo(0, 0)}
           >
-            <p className="text-black text-[18px] cursor-pointer">
+            <p className="text-text-primary text-[18px] cursor-pointer">
               Ishan Apte | Powered By: 
             </p>
             <img src={nodejs} alt="NodeJs" className="w-9 h-9 object-contain" />

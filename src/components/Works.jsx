@@ -50,8 +50,8 @@ const ProjectCard = ({
 
       <div className='mt-5 flex flex-col flex-grow'>
         <div>
-          <h3 className='text-slate-800 font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-slate-600 text-[14px]'>{description}</p>
+          <h3 className='text-text-primary font-bold text-[24px]'>{name}</h3>
+          <p className='mt-2 text-text-secondary text-[14px]'>{description}</p>
         </div>
 
         <div className='flex-grow'></div>
@@ -61,7 +61,7 @@ const ProjectCard = ({
             {tags.map((tag) => (
               <p
                 key={`${name}-${tag.name}`}
-                className='px-3 py-1 bg-gray-200 text-gray-800 text-sm font-medium rounded-full'
+                className='px-3 py-1 bg-accent-light text-text-primary text-sm font-medium rounded-full'
               >
                 {tag.name}
               </p>
@@ -70,7 +70,7 @@ const ProjectCard = ({
           
           <div className="mt-5 min-h-[28px]">
             {live_demo_link && (
-                <span className="text-blue-600 font-semibold text-sm">
+                <span className="text-accent font-semibold text-sm">
                     Live Demo →
                 </span>
             )}
@@ -105,7 +105,7 @@ const Works = () => {
       <div className='w-full flex'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          className='mt-3 text-text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
           the weird and wonderful...
         </motion.p>
@@ -132,9 +132,9 @@ const Works = () => {
         <button
           onClick={scrollPrev}
           className='absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4
-                     w-10 h-10 bg-slate-800 text-white rounded-full
+                     w-10 h-10 bg-accent text-white rounded-full
                      flex items-center justify-center shadow-lg
-                     hover:bg-slate-900 transition-colors duration-300
+                     hover:bg-accent/90 transition-colors duration-300
                      hover:scale-110 z-10'
           aria-label="Previous project"
         >
@@ -145,9 +145,9 @@ const Works = () => {
         <button
           onClick={scrollNext}
           className='absolute right-0 top-1/2 -translate-y-1/2 translate-x-4
-                     w-10 h-10 bg-slate-800 text-white rounded-full
+                     w-10 h-10 bg-accent text-white rounded-full
                      flex items-center justify-center shadow-lg
-                     hover:bg-slate-900 transition-colors duration-300
+                     hover:bg-accent/90 transition-colors duration-300
                      hover:scale-110 z-10'
           aria-label="Next project"
         >
@@ -162,8 +162,8 @@ const Works = () => {
           href="https://github.com/IshanApte"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-slate-800 text-white font-bold py-3 px-8 rounded-full
-                     hover:bg-slate-900 transition-colors duration-300
+          className="bg-accent text-white font-bold py-3 px-8 rounded-full
+                     hover:bg-accent/90 transition-colors duration-300
                      shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           View More on GitHub

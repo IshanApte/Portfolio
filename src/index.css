@@ -14,11 +14,11 @@
 }
 
 .vertical-timeline::before {
-  background-color: #000000; /* Black vertical line */
+  background-color: #64748B; /* Secondary text color for vertical line */
 }
 
 .date-class {
-  color: #000000; /* Optional: Change the date text color */
+  color: #64748B; /* Secondary text color for dates */
 }
 
 
@@ -220,7 +220,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(41, 98, 255, 0.07);
+  background: rgba(37, 99, 235, 0.07); /* Using accent color #2563EB */
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
@@ -233,11 +233,6 @@
 }
 
 .animated-gradient-background {
-  background: radial-gradient(
-    ellipse at center,
-    #f0f8ff 0%, /* AliceBlue at the very center */
-    #e0f7fa 30%, /* Pale Cyan */
-    #b3e5fc 100% /* Light Sky Blue at the edges */
-  );
+  background: #F9FAFB; /* Main canvas background */
 }
 

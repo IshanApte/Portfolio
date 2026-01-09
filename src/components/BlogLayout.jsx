@@ -20,7 +20,7 @@ const BlogLayout = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f8fafc] pt-32 px-4 sm:px-8 md:px-16 lg:px-32">
+    <div className="w-full min-h-screen bg-background pt-32 px-4 sm:px-8 md:px-16 lg:px-32">
       <div className="max-w-3xl mx-auto">
         {/* Introduction Section */}
         <motion.section
@@ -29,21 +29,21 @@ const BlogLayout = () => {
           transition={{ duration: 0.5 }}
           className="mb-24"
         >
-          <h1 className="text-4xl font-normal text-gray-900 mb-6">
+          <h1 className="text-4xl font-normal text-text-primary mb-6">
             Welcome to My Blog
           </h1>
           <div className="space-y-6">
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-text-secondary text-lg leading-relaxed">
               Hi, I'm Ishan Apte, a software developer and graduate student at Indiana University Bloomington. 
               Here, I share my thoughts and experiences about software development, web technologies, and my journey in tech.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-text-secondary text-lg leading-relaxed">
               My blog focuses on topics like Three.js, React, web development, and my experiences building interactive 3D applications. 
               I also write about my learnings in graduate school and insights from working on various projects.
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <div className="h-1 w-16 bg-[#2962FF]"></div>
-              <span className="text-[#2962FF] font-medium">Latest Posts</span>
+              <div className="h-1 w-16 bg-accent"></div>
+              <span className="text-accent font-medium">Latest Posts</span>
             </div>
           </div>
         </motion.section>
@@ -58,8 +58,8 @@ const BlogLayout = () => {
             className="mb-16 group cursor-pointer"
             onClick={() => handlePostClick(post.id)}
           >
-            <div className="flex items-center gap-4 mb-2 text-sm text-gray-500">
-              <span className="text-[#2962FF]">{post.date}</span>
+            <div className="flex items-center gap-4 mb-2 text-sm text-text-secondary">
+              <span className="text-accent">{post.date}</span>
               {post.comments && (
                 <>
                   <span>•</span>
@@ -68,15 +68,15 @@ const BlogLayout = () => {
               )}
             </div>
             
-            <h2 className="text-2xl font-normal text-gray-900 mb-1 group-hover:text-[#2962FF] transition-colors">
+            <h2 className="text-2xl font-normal text-text-primary mb-1 group-hover:text-accent transition-colors">
               {post.id}. {post.title} »
             </h2>
             
-            <p className="text-gray-600 text-lg font-light">
+            <p className="text-text-secondary text-lg font-light">
               {post.subtitle}
             </p>
 
-            <p className="text-[#2962FF] text-sm font-medium mt-2">
+            <p className="text-accent text-sm font-medium mt-2">
               By Ishan Apte
             </p>
 

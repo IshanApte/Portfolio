@@ -65,14 +65,14 @@ const App = () => {
           </div>
         } />
         <Route path="/blog" element={
-          <div className="bg-[#f8fafc]">
+          <div className="bg-background">
             <Navbar />
             <BlogLayout />
             <Footer />
           </div>
         } />
         <Route path="/blog/:id" element={
-          <div className="bg-[#f8fafc]">
+          <div className="bg-background">
             <Navbar />
             <BlogPost />
             <Footer />

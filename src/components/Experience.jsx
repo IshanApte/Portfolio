@@ -108,12 +108,12 @@ const Experience = () => {
           What I have done so far
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          <span style={{ color: '#003366' }}>Education</span> & <span style={{ color: '#014d4e' }}>Work Experience</span>.
+          <span className="text-accent">Education</span> & <span className="text-accent">Work Experience</span>.
         </h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline lineColor='#000000'> {/* Set the line color to black */}
+        <VerticalTimeline lineColor='#64748B'> {/* Using secondary text color */}
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}

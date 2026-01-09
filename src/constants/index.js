@@ -56,21 +56,9 @@ export const navLinks = [
   {
     id: "resume",
     title: "Resume",
+    href: "/IshanApte_Resume.pdf",
+    target: "_blank",
     color: "blue-text-gradient",
-    subLinks: [
-      {
-        id: "resume-swe",
-        title: "Software Developer",
-        href: "/IshanApte_SDE_Resume.pdf",
-        target: "_blank",
-      },
-      {
-        id: "resume-ai",
-        title: "AI / ML",
-        href: "/IshanApte_AI_Resume.pdf",
-        target: "_blank",
-      }
-    ],
   }
 ];
 
@@ -268,7 +256,7 @@ const projects = [
     ],
     image: brainstormAIImage,
     source_code_link: "https://github.com/IshanApte/BrainstormAI",
-    live_demo_link: "",
+    live_demo_link: "https://brainstorm-ai-seven.vercel.app/",
     case_study_link: "",
   },
   {

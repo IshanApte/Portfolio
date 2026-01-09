@@ -5,16 +5,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Defining white and cream shades for the background
+        // New color theme
+        background: "#F9FAFB",
+        "text-primary": "#0F172A",
+        "text-secondary": "#64748B",
+        accent: "#2563EB",
+        "accent-light": "#DBEAFE",
+        
+        // Legacy colors (keeping for backward compatibility)
         primary: "#FFFFFF", 
         secondary: "6EACDA", 
         tertiary: "#5585b5",  
-
-        // Defining black colors for text
-        "black-100": "#79c2d0",  // Pure black
-        "black-200": "#53a8b6",  // Slightly lighter black (dark gray)
-        
-        // Optional: keeping the white text variant for contrast if needed
+        "black-100": "#79c2d0",
+        "black-200": "#53a8b6",
         "white-100": "#ffffff", 
       },
       boxShadow: {

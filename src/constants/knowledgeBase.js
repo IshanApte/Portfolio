@@ -46,7 +46,7 @@ export const knowledgeBase = [
   
   This research experience showcases his computer vision and deep learning expertise.
   
-  📄 [Read Published Paper](/IshanApte_AI_Resume.pdf) | 🎓 [Learn about his education](#education)`,
+  📄 [Read Published Paper](/IshanApte_Resume.pdf) | 🎓 [Learn about his education](#education)`,
       suggestions: ["What about his full-stack projects?", "Tell me about his technical skills"]
     },
   
@@ -115,7 +115,7 @@ export const knowledgeBase = [
   🌐 Full-stack Development (300+ requests/min handled)
   📱 Mobile Development (iOS with SwiftUI)
   
-  🔗 [View All Projects](https://github.com/IshanApte) | 📄 [Download Resume](/IshanApte_SDE_Resume.pdf)`,
+  🔗 [View All Projects](https://github.com/IshanApte) | 📄 [Download Resume](/IshanApte_Resume.pdf)`,
       suggestions: ["Show me his AI projects", "Tell me about his experience", "What languages does he know best?"]
     },
   
@@ -168,7 +168,7 @@ export const knowledgeBase = [
   
   **Current Recognition**: Developing official iOS app for Indiana University
   
-  🏅 [See All Achievements](#experience) | 📄 [Read Published Work](/IshanApte_AI_Resume.pdf)`,
+  🏅 [See All Achievements](#experience) | 📄 [Read Published Work](/IshanApte_Resume.pdf)`,
       suggestions: ["Tell me about his current projects", "How can I contact him?", "What are his technical skills?"]
     },
   
@@ -181,7 +181,7 @@ export const knowledgeBase = [
   📧 **Email**: [ishan.apte01@gmail.com](mailto:ishan.apte01@gmail.com)
   💼 **LinkedIn**: [linkedin.com/in/ishan-apte-1489a9213](https://www.linkedin.com/in/ishan-apte-1489a9213/)
   💻 **GitHub**: [github.com/IshanApte](https://github.com/IshanApte)
-  📄 **Resume**: [Download Latest](/IshanApte_SDE_Resume.pdf)
+  📄 **Resume**: [Download Latest](/IshanApte_Resume.pdf)
   
   **Quick Actions**:
   🤝 ishan.apte01@gmail.com
@@ -208,7 +208,7 @@ export const knowledgeBase = [
   
   **Ready for**: Full-time roles starting Summer 2025
   
-  📧 ishan.apte01@gmail.com | 💼 [View LinkedIn](https://www.linkedin.com/in/ishan-apte-1489a9213/) | 📄 [Download Resume](/IshanApte_SDE_Resume.pdf)`,
+  📧 ishan.apte01@gmail.com | 💼 [View LinkedIn](https://www.linkedin.com/in/ishan-apte-1489a9213/) | 📄 [Download Resume](/IshanApte_Resume.pdf)`,
       suggestions: ["Tell me about his AI projects", "What are his technical skills?", "Show me his portfolio"]
     },
   
@@ -239,7 +239,7 @@ export const knowledgeBase = [
   🚀 **Explore More**:
   • [View All Projects](https://github.com/IshanApte)
   • [Read Technical Blog](https://github.com/IshanApte)
-  • [Download Resume](/IshanApte_SDE_Resume.pdf)
+  • [Download Resume](/IshanApte_Resume.pdf)
   
   📞 **Get In Touch**:
   • ishan.apte01@gmail.com
