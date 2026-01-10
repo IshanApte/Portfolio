@@ -9,7 +9,7 @@ const LandingPage = () => {
     <>
       {/* Hero Section with Background Image */}
       <div 
-        className="hero-image relative w-full h-[50vh] md:h-[67vh] flex items-center justify-center overflow-hidden"
+        className="relative w-full h-[50vh] md:h-[67vh] flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: 'url(/1.png)',
           backgroundPosition: 'center center',

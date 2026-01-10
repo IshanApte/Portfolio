@@ -236,12 +236,3 @@
   background: #F9FAFB; /* Main canvas background */
 }
 
-@keyframes slowZoom {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.hero-image {
-  animation: slowZoom 25s ease-in-out infinite;
-}
-
