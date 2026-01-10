@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink } from 'react-scroll';  // Import from react-scroll
+import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -10,9 +11,27 @@ import logo from '../assets/LOGO.png';
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  return (
-    <nav
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY >= 150);
+    };
+    
+    // Check initial scroll position
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Full navbar content component
+  const FullNavbar = () => (
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-transparent backdrop-blur-sm`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -25,10 +44,6 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          {/* <p className='text-black text-[18px] font-bold cursor-pointer flex '>
-            Ishan &nbsp;
-            <span className='sm:block hidden'> | Portfolio</span>
-          </p> */}
         </RouterLink>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>
@@ -147,7 +162,41 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
+  );
+
+  // Minimal logo component
+  const MinimalLogo = () => (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className={`${styles.paddingX} fixed top-0 z-20 py-5`}
+    >
+      <RouterLink
+        to='/'
+        className='flex items-center gap-2'
+        onClick={() => {
+          setActive("");
+          window.location.reload();
+        }}
+      >
+        <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+      </RouterLink>
+    </motion.div>
+  );
+
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        {scrolled ? (
+          <FullNavbar key="full-navbar" />
+        ) : (
+          <MinimalLogo key="minimal-logo" />
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

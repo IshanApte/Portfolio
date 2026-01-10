@@ -53,13 +53,6 @@ export const navLinks = [
   //   href: "/blog",
   //   color: "text-[#2962FF]",
   // },
-  {
-    id: "resume",
-    title: "Resume",
-    href: "/IshanApte_Resume.pdf",
-    target: "_blank",
-    color: "blue-text-gradient",
-  }
 ];
 
 const services = [
