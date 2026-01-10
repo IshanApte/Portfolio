@@ -6,110 +6,118 @@ const LandingPage = () => {
   const resumeLink = navLinks.find(link => link.id === 'resume');
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center max-w-2xl mx-auto"
+    <>
+      {/* Hero Section with Background Image */}
+      <div 
+        className="hero-image relative w-full h-[50vh] md:h-[67vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: 'url(/1.png)',
+          backgroundPosition: 'center center',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#F9FAFB',
+        }}
       >
-        {/* Profile Photo */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-8"
-        >
-          <div className="w-60 h-60 mx-auto rounded-full overflow-hidden shadow-lg">
-            <img 
-              src="/LinkedIn_Profile.jpeg" 
-              alt="Ishan Apte"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+        {/* Overlay gradient for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-white/40" />
+      </div>
 
-        {/* Name/Title */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="mb-6"
+      {/* Content Section Below Hero */}
+      <div 
+        className="w-full py-16 px-6"
+        style={{ backgroundColor: '#F9FAFB' }}
+      >
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-text-primary mb-2 tracking-tight">
-            Hey! I'm{' '}
-            <span className="text-accent font-extrabold">
-              Ishan
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl font-medium text-text-secondary tracking-wide">
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-4xl md:text-5xl lg:text-4xl font-black mb-3 tracking-tight leading-tight"
+            style={{ color: '#0F172A' }}
+          >
             Product Engineer
-          </p>
-        </motion.div>
+          </motion.h1>
 
-        {/* One-line description */}
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-lg md:text-xl text-text-secondary leading-relaxed font-normal mb-4 max-w-2xl mx-auto"
-        >
-          Designing and shipping AI‑powered products.
-        </motion.p>
-
-        {/* Capability chips */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="mb-6"
-        >
-          <div className="flex flex-wrap justify-center items-center gap-2 text-sm text-text-secondary">
-            <span>"San Jose, CA"</span>
-            <span>·</span>
-            <span>"Actively interviewing"</span>
-            <span>·</span>
-            <span>"Software Engineer roles"</span>
-          </div>
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="flex flex-wrap justify-center items-center gap-4"
-        >
-          {/* Primary CTA */}
-          <a
-            href="#projects"
-            className="bg-accent text-white font-semibold py-3 px-6 rounded-full hover:bg-accent/90 transition-colors duration-300 shadow-md hover:shadow-lg"
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg md:text-xl mb-3 leading-normal font-normal max-w-2xl mx-auto"
+            style={{ color: '#64748B' }}
           >
-            View my products
-          </a>
+            Designing and shipping AI-powered products end-to-end.
+          </motion.p>
 
-          {/* Secondary CTA (Ghost button) */}
-          <a
-            href={resumeLink?.href || "/IshanApte_Resume.pdf"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-accent text-accent font-semibold py-3 px-6 rounded-full hover:bg-accent/10 transition-colors duration-300"
+          {/* Chips */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mb-4"
           >
-            Download resume
-          </a>
+            <div className="flex flex-wrap justify-center items-center gap-2 text-sm" style={{ color: '#64748B' }}>
+              <span>San Jose, CA</span>
+              <span>·</span>
+              <span>Actively interviewing</span>
+              <span>·</span>
+              <span>Software Engineer roles</span>
+            </div>
+          </motion.div>
 
-          {/* LinkedIn CTA */}
-          <a
-            href="https://www.linkedin.com/in/ishan-apte-1489a9213/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-accent text-accent font-semibold py-3 px-6 rounded-full hover:bg-accent/10 transition-colors duration-300"
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap justify-center items-center gap-4"
           >
-            LinkedIn
-          </a>
+            {/* Primary CTA */}
+            <a
+              href="#projects"
+              className="font-semibold py-3 px-6 rounded-full text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+              style={{ backgroundColor: '#2563EB' }}
+            >
+              View my products
+            </a>
+
+            {/* Secondary CTA - Download resume */}
+            <a
+              href={resumeLink?.href || "/IshanApte_Resume.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold py-3 px-6 rounded-full border-2 transition-all duration-300 hover:bg-opacity-10 transform hover:scale-105"
+              style={{ 
+                borderColor: '#2563EB',
+                color: '#2563EB'
+              }}
+            >
+              Download resume
+            </a>
+
+            {/* Secondary CTA - LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/ishan-apte-1489a9213/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold py-3 px-6 rounded-full border-2 transition-all duration-300 hover:bg-opacity-10 transform hover:scale-105"
+              style={{ 
+                borderColor: '#2563EB',
+                color: '#2563EB'
+              }}
+            >
+              LinkedIn
+            </a>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </>
   );
 };
 
