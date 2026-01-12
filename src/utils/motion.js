@@ -17,10 +17,13 @@ export const textVariant = (delay) => {
 };
 
 export const fadeIn = (direction, type, delay, duration) => {
+  // Custom premium easing: cubic-bezier(0.16, 1, 0.3, 1)
+  const premiumEase = [0.16, 1, 0.3, 1];
+  
   return {
     hidden: {
       x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      y: direction === "up" ? 40 : direction === "down" ? -100 : 0,
       opacity: 0,
     },
     show: {
@@ -28,10 +31,10 @@ export const fadeIn = (direction, type, delay, duration) => {
       y: 0,
       opacity: 1,
       transition: {
-        type: type,
+        type: type || "tween",
         delay: delay,
-        duration: duration,
-        ease: "easeOut",
+        duration: duration || 0.6,
+        ease: premiumEase,
       },
     },
   };

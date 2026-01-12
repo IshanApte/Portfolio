@@ -226,8 +226,9 @@ const testimonials = [
 const projects = [
   {
     name: "ReMind",
+    subtitle: "AI-powered research assistant",
     impact: "A dynamic memory system for AI that adapts to topic flow, keeping retrieval aligned with the current conversation context.",
-    description: "Built a hybrid retrieval system combining semantic similarity with temporal decay, reinforcing frequently accessed spans to keep relevant parts of large documents 'on top'. Features a chat interface with book heatmap visualization and confidence scoring for every answer.",
+    description: "ReMind turns dense textbooks into a chat you can actually follow, keeping the conversation locked onto whatever topic you're on right now instead of repeating stale answers. It remembers what you keep asking about, gently forgets the rest.",
     tags: [
       { name: "RAG", color: "blue-text-gradient" },
       { name: "Next.js", color: "green-text-gradient" },
@@ -240,8 +241,9 @@ const projects = [
   },
   {
     name: "Brainstorm AI",
+    subtitle: "Honest AI brainstorming partner",
     impact: "A system designed to reduce AI pandering and simulate the candid, creative energy of brainstorming with friends.",
-    description: "Engineered a stateful agent using LangGraph to create cyclical and conditional workflows, enabling the AI to dynamically select the appropriate tool based on conversational context.",
+    description: "Brainstorm AI gives you a roundtable of AIs—idea generator, analyst, visionary, and skeptic—so your ideas are challenged from multiple angles instead of just being agreed with.",
     tags: [
       { name: "Node.js", color: "blue-text-gradient" },
       { name: "LangChain.js", color: "green-text-gradient" },
@@ -254,8 +256,9 @@ const projects = [
   },
   {
     name: "BloomingtonBuzz",
+    subtitle: "Real-time campus event discovery",
     impact: "An iOS mobile app for real-time event discovery at Indiana University.",
-    description: "Developed using SwiftUI, this app features interactive mapping with MapKit and personalized, location-based event recommendations via CoreLocation, tested with over 20 peers.",
+    description: "SwiftUI app featuring interactive mapping with MapKit and personalized, location-based event recommendations via CoreLocation, tested with over 20 peers.",
     tags: [
       { name: "SwiftUI", color: "blue-text-gradient" },
       { name: "MapKit", color: "green-text-gradient" },
@@ -268,8 +271,9 @@ const projects = [
   },
   {
     name: "SportConnect",
+    subtitle: "Social network for athletes",
     impact: "A full-stack MERN social application enabling users to connect based on shared sports interests.",
-    description: "Features secure JWT & OAuth authentication, real-time chat, and robust RESTful APIs handling high user request volumes.",
+    description: "Full-stack social platform with secure JWT & OAuth authentication, real-time chat via Socket.io, and robust RESTful APIs handling high user request volumes.",
     tags: [
       { name: "MERN Stack", color: "blue-text-gradient" },
       { name: "Docker", color: "green-text-gradient" },
@@ -279,20 +283,6 @@ const projects = [
     source_code_link: "https://github.com/IshanApte/SportsConnect",
     // live_demo_link: "https://sport-connect.onrender.com/",
     case_study_link: "https://medium.com/@ishanapte/sportconnect-connecting-sports-enthusiasts-through-a-full-stack-mern-application-36946979568b",
-  },
-  {
-    name: "EventCraft",
-    impact: "A responsive event management web application built with the MERN stack.",
-    description: "Streamlines event creation and management with an intuitive interface, ensuring seamless user interaction and data handling across various devices.",
-    tags: [
-      { name: "React", color: "blue-text-gradient" },
-      { name: "MongoDB", color: "green-text-gradient" },
-      { name: "Node.js", color: "pink-text-gradient" },
-    ],
-    image: planningImage,
-    source_code_link: "https://github.com/IshanApte/EventCraft",
-    live_demo_link: "",
-    case_study_link: "",
   },
 ] ;
 
