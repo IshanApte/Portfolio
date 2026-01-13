@@ -1,36 +1,21 @@
-import OpenAI from 'openai';
 import { knowledgeBase } from '../constants/knowledgeBase';
 import { linkDatabase, findRelevantLinks, formatLink } from '../constants/links';
 
 class OpenAIService {
   constructor() {
-    this.openai = null;
     this.initialized = false;
     this.monthlyBudget = 1.00; // $1 monthly budget
     this.tokensPerDollar = 500000; // Approximate tokens per $1 for GPT-3.5-turbo
     this.maxMonthlyTokens = this.monthlyBudget * this.tokensPerDollar;
-    this.initializeOpenAI();
+    this.apiRoute = '/api/chat'; // Secure API route (key stays on server)
+    this.initializeService();
   }
 
-  initializeOpenAI() {
-    try {
-      const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-      
-      if (!apiKey || apiKey === 'your_openai_api_key_here') {
-        console.warn('OpenAI API key not found. Falling back to basic keyword matching.');
-        return;
-      }
-
-      this.openai = new OpenAI({
-        apiKey: apiKey,
-        dangerouslyAllowBrowser: true // Note: In production, use a backend proxy
-      });
-      
-      this.initialized = true;
-      console.log('OpenAI service initialized successfully');
-    } catch (error) {
-      console.error('Failed to initialize OpenAI service:', error);
-    }
+  initializeService() {
+    // Service is always available - API key is on server
+    // We'll check if the API route is accessible when making requests
+    this.initialized = true;
+    console.log('OpenAI service initialized (using secure API route)');
   }
 
   // Convert knowledge base to context string for OpenAI
@@ -134,9 +119,9 @@ Or ask something specific about his background!`,
     };
   }
 
-  // Generate intelligent response using OpenAI
+  // Generate intelligent response using secure API route
   async generateIntelligentResponse(userInput, conversationHistory = []) {
-    if (!this.initialized || !this.openai) {
+    if (!this.initialized) {
       return this.findBasicResponse(userInput);
     }
 
@@ -184,20 +169,60 @@ Remember: You represent Ishan professionally, so be accurate and helpful! ALWAYS
         { role: 'user', content: userInput }
       ];
 
-      const response = await this.openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: messages,
-        max_tokens: 150,
-        temperature: 0.7,
-        presence_penalty: 0.6,
-        frequency_penalty: 0.3
-      });
+      // Call secure API route instead of OpenAI directly
+      // API route only works when deployed to Vercel
+      const apiUrl = `${window.location.origin}${this.apiRoute}`;
+
+      let response;
+      try {
+        response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            messages: messages,
+            model: 'gpt-3.5-turbo',
+            max_tokens: 150,
+            temperature: 0.7
+          })
+        });
+      } catch (fetchError) {
+        // Network error (API route doesn't exist in local dev)
+        console.warn('API route not available (normal in local dev). Using fallback.');
+        return this.findBasicResponse(userInput);
+      }
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        
+        // Log the error for debugging (only in dev)
+        if (import.meta.env.DEV) {
+          console.warn('OpenAI API route error:', {
+            status: response.status,
+            statusText: response.statusText,
+            error: errorData
+          });
+        }
+        
+        // If API key not configured or route unavailable, fall back to basic matching
+        if (errorData.fallback || response.status === 500 || response.status === 404) {
+          if (import.meta.env.DEV) {
+            console.info('Note: AI features work in production. Local dev uses basic matching.');
+          }
+          return this.findBasicResponse(userInput);
+        }
+        
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const data = await response.json();
 
       // Track usage after successful API call
-      const tokensUsed = response.usage?.total_tokens || 150; // Fallback to max_tokens if usage not available
+      const tokensUsed = data.usage?.total_tokens || 150; // Fallback to max_tokens if usage not available
       const updatedUsage = this.updateUsage(tokensUsed);
       
-      const aiResponse = response.choices[0].message.content;
+      const aiResponse = data.content;
       
       // Add budget warning if approaching limit
       let budgetWarning = '';
@@ -237,11 +262,17 @@ Remember: You represent Ishan professionally, so be accurate and helpful! ALWAYS
     } catch (error) {
       console.error('OpenAI API error:', error);
       
+      // More detailed error logging for debugging
+      if (error.message?.includes('fetch')) {
+        console.warn('Network error - API route may not be available. This is normal in local development if not using Vercel dev server.');
+      }
+      
       // Fallback to basic matching on API error
       const fallbackResponse = this.findBasicResponse(userInput);
       return {
         ...fallbackResponse,
-        error: 'AI service temporarily unavailable - using basic matching'
+        error: 'AI service temporarily unavailable - using basic matching',
+        isFallback: true
       };
     }
   }

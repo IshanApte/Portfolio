@@ -22,6 +22,29 @@ This portfolio showcases practical application of skills mentioned in my academi
 - **Software Architecture**: Clean, maintainable code structure
 
 
+## Setup Instructions
+
+### Environment Variables
+
+The chatbot uses OpenAI API through a secure serverless function. To enable it:
+
+1. **Get your OpenAI API key** from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+
+2. **For Vercel deployment (Production):**
+   - Go to your Vercel project dashboard
+   - Navigate to Settings > Environment Variables
+   - Add: `OPENAI_API_KEY` with your actual API key
+   - Redeploy your site
+
+3. **For local development:**
+   - The API route only works when deployed to Vercel
+   - In local dev, the chatbot will use basic keyword matching (fallback mode)
+   - To test the full AI functionality, deploy to Vercel or use `vercel dev` command
+
+**Security Note:** The API key is stored server-side only and never exposed to the browser. The `/api/chat` route handles all OpenAI requests securely.
+
+**Note:** If you see "AI service temporarily unavailable" in local development, this is expected. The chatbot will work with full AI capabilities once deployed to Vercel with the `OPENAI_API_KEY` environment variable set.
+
 ## Connect With Me
 
 - **Email**: [ishan.apte01@gmail.com](mailto:ishan.apte01@gmail.com)
