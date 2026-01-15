@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import BlogLayout from "./components/BlogLayout";
 import BlogPost from "./components/BlogPost";
 import FloatingChatbot from "./components/FloatingChatbot";
+import PrivacyPolicy from "./components/legal/PrivacyPolicy";
 
 const App = () => {
   useEffect(() => {
@@ -78,6 +79,7 @@ const App = () => {
             <Footer />
           </div>
         } />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   );
