@@ -130,6 +130,45 @@ const PrivacyPolicy = () => {
         <li>We do not allow human review of user data except as necessary for security or legal compliance</li>
     </ul>
 
+    <h2>Chrome Web Store Permission Justifications</h2>
+    <p>Nerdling requires the following Chrome extension permissions to function. Below is a detailed explanation of why each permission is necessary:</p>
+
+    <h3>1. contextMenus</h3>
+    <p><strong>Justification:</strong></p>
+    <p>Nerdling adds a "Nerdling" option to the browser's right-click context menu when users select text. This is the primary way users access the extension's core functionality - selecting text and getting instant definitions and explanations. The context menu integration allows users to seamlessly activate Nerdling without leaving their current page or interrupting their reading flow.</p>
+    <p><strong>Code Reference:</strong> <code>background.js</code> lines 2-7 - Creates context menu item for text selections.</p>
+
+    <h3>2. scripting</h3>
+    <p><strong>Justification:</strong></p>
+    <p>The extension needs to inject content scripts (<code>content.js</code>) and styles (<code>styles.css</code>) into web pages dynamically when the user activates the extension. This is essential for the core user experience - showing definitions and explanations in an overlay without navigating away. The scripting permission is used in combination with <code>activeTab</code> to inject scripts and capture selected text and page context when users activate the extension via right-click or keyboard shortcut. This approach is more secure than using broad host permissions, as scripts are only injected when explicitly requested by the user.</p>
+    <p><strong>Code Reference:</strong> <code>background.js</code> - Dynamically injects scripts and CSS when user activates extension via context menu or keyboard shortcut.</p>
+
+    <h3>3. activeTab</h3>
+    <p><strong>Justification:</strong></p>
+    <p>The <code>activeTab</code> permission provides temporary access to the currently active tab only when the user explicitly invokes the extension. This is used for both:</p>
+    <ol>
+        <li><strong>Right-click context menu:</strong> When users right-click on selected text and choose "Nerdling"</li>
+        <li><strong>Keyboard shortcut:</strong> When users press Ctrl+Shift+E (Windows) or Cmd+Shift+E (Mac)</li>
+    </ol>
+    <p>The activeTab permission is more secure than broad host permissions because it only grants access when the user takes an explicit action, and the access is temporary. This allows Nerdling to work on any webpage while maintaining user privacy and security. The extension uses activeTab in combination with the scripting permission to inject content scripts and read selected text.</p>
+    <p><strong>Code Reference:</strong> <code>background.js</code> - Context menu and keyboard command handlers that access the active tab to read selections and inject scripts.</p>
+
+    <h3>4. storage</h3>
+    <p><strong>Justification:</strong></p>
+    <p>Nerdling stores user preferences to personalize the experience across browsing sessions. This includes: dialogue box position (top, bottom, left, right, center), theme preference (light/dark mode), default explanation mode, and whether to show mode selection each time. Without storage, users would need to reconfigure these settings every time they use the extension, significantly degrading the user experience.</p>
+    <p><strong>Code Reference:</strong> <code>content.js</code> lines 349-502 - Multiple storage operations to save and load user preferences for position, theme, default mode, and onboarding status.</p>
+
+    <h3>Summary</h3>
+    <p>All four permissions are essential for Nerdling's core functionality:</p>
+    <ul>
+        <li><strong>contextMenus:</strong> Right-click menu integration</li>
+        <li><strong>scripting:</strong> Inject dialogue box UI and capture selections (used with activeTab)</li>
+        <li><strong>activeTab:</strong> Provides secure, temporary access to the active tab when user explicitly invokes the extension (via right-click or keyboard shortcut)</li>
+        <li><strong>storage:</strong> Save user preferences</li>
+    </ul>
+    <p>The extension uses the <code>activeTab</code> permission instead of broad host permissions (<code>&lt;all_urls&gt;</code>), which is more secure and privacy-friendly. The <code>activeTab</code> permission provides temporary access to the currently active tab only when the user explicitly invokes the extension (right-click or keyboard shortcut), ensuring the extension works on any webpage while maintaining user privacy and security.</p>
+    <p>The extension follows privacy best practices by only accessing content when explicitly invoked by the user and not collecting browsing history or personal data.</p>
+
     <h2>Limited Use Disclosure</h2>
     <p>Nerdling's use of information received from Google APIs (if applicable) will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 
@@ -211,6 +250,15 @@ const PrivacyPolicy = () => {
 
         .privacy-content a:hover {
           text-decoration: underline;
+        }
+
+        .privacy-content code {
+          background-color: #f1f5f9;
+          padding: 2px 6px;
+          border-radius: 3px;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9em;
+          color: #1e293b;
         }
 
         .privacy-content .highlight {
