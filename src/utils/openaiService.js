@@ -153,7 +153,6 @@ CRITICAL LINK USAGE RULES:
 - Make sure the links are selected from the links database
 - When discussing ANY project, ALWAYS include the GitHub repository link
 - For contact/hiring questions, include action links (Schedule a Call, Discuss Collaboration)
-- For resume requests, include both SDE and AI resume download links
 - For professional networking, include LinkedIn profile link
 - Use EXACT markdown format from links database: [Link Text](URL)
 - Include 2-3 relevant links per response when applicable

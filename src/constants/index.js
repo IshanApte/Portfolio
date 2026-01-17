@@ -27,7 +27,6 @@ import bloomingtonBuzzImage from '../assets/BloomingtonBuzz.png';
 import superAgentImage from '../assets/gmailagent.png';
 import brainstormAIImage from '../assets/BrainstormAI.png';
 import remindImage from '../assets/remind.png'; // placeholder - update when image is provided
-// import resumefile from '/IshanApteResume.pdf';
 
 
 

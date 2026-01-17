@@ -52,15 +52,6 @@ export const linkDatabase = {
     }
   },
 
-  // Documents
-  documents: {
-    resume: {
-      url: "/IshanApte_Resume.pdf",
-      text: "Download Resume",
-      description: "Ishan Apte's resume"
-    }
-  },
-
   // Project Links
   projects: {
     brainstormai: {

@@ -16,7 +16,7 @@ const FloatingChatbotContent = () => {
 
   const introMessages = [
     { from: 'bot', text: "Hi there! 👋" },
-    { from: 'bot', text: "I'm here to help you learn about Ishan's experience and projects!" },
+    { from: 'bot', text: "I'm here to help you learn about Ishan's education and projects!" },
     { from: 'bot', text: "What would you like to know?" },
   ];
 
@@ -71,7 +71,6 @@ const FloatingChatbotContent = () => {
     
     // === PRACTICAL LOGISTICS ===
     { display: "Contact info?", fullQuestion: "How can I get in touch with him?" },
-    { display: "Resume download?", fullQuestion: "Where can I download his resume?" },
     { display: "Portfolio demo?", fullQuestion: "Can I see live demos of his projects?" },
     { display: "GitHub links?", fullQuestion: "Where can I see his code repositories?" },
     
@@ -86,10 +85,10 @@ const FloatingChatbotContent = () => {
   const initializeSuggestions = () => {
     // Define the first 4 priority suggestions
     const prioritySuggestions = [
-      { display: "Experience?", fullQuestion: "What work experience does he have?" },
       { display: "Projects?", fullQuestion: "What projects has he worked on?" },
       { display: "Skills?", fullQuestion: "What are his technical skills?" },
-      { display: "Contact?", fullQuestion: "How can I get in touch with him?" }
+      { display: "Contact?", fullQuestion: "How can I get in touch with him?" },
+      { display: "Education?", fullQuestion: "Tell me about his education" }
     ];
     
     // Filter out the priority suggestions from the main list to avoid duplicates
@@ -296,7 +295,7 @@ const FloatingChatbotContent = () => {
       await new Promise(resolve => setTimeout(resolve, 600));
       setMessages(prev => [...prev, { 
         from: 'bot', 
-        text: "I apologize, but I'm having trouble right now. Please try asking about Ishan's projects or experience!" 
+        text: "I apologize, but I'm having trouble right now. Please try asking about Ishan's projects!" 
       }]);
     } finally {
       setIsLoading(false);

@@ -74,7 +74,6 @@ const Chatbot = () => {
     
     // === PRACTICAL LOGISTICS ===
     { display: "Contact info?", fullQuestion: "How can I get in touch with him?" },
-    { display: "Resume download?", fullQuestion: "Where can I download his resume?" },
     { display: "Portfolio demo?", fullQuestion: "Can I see live demos of his projects?" },
     { display: "GitHub links?", fullQuestion: "Where can I see his code repositories?" },
     
@@ -89,11 +88,11 @@ const Chatbot = () => {
   const initializeSuggestions = () => {
     // Define the first 5 specific suggestions
     const prioritySuggestions = [
-      { display: "Experience?", fullQuestion: "What work experience does he have?" },
       { display: "Projects?", fullQuestion: "What projects has he worked on?" },
       { display: "Skills?", fullQuestion: "What are his technical skills?" },
       { display: "Contact?", fullQuestion: "How can I get in touch with him?" },
-      { display: "Resume?", fullQuestion: "Where can I download his resume?" }
+      { display: "GitHub links?", fullQuestion: "Where can I see his code repositories?" },
+      { display: "Education?", fullQuestion: "Tell me about his education" }
     ];
     
     // Filter out the priority suggestions from the main list to avoid duplicates

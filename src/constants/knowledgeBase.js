@@ -46,7 +46,7 @@ export const knowledgeBase = [
   
   This research experience showcases his computer vision and deep learning expertise.
   
-  📄 [Read Published Paper](/IshanApte_Resume.pdf) | 🎓 [Learn about his education](#education)`,
+  🎓 [Learn about his education](#education)`,
       suggestions: ["What about his full-stack projects?", "Tell me about his technical skills"]
     },
   
@@ -94,8 +94,8 @@ export const knowledgeBase = [
   
   **Current Work**: Now developing the next version as Software Developer at IU!
   
-  🔗 [View on GitHub](https://github.com/IshanApte/BloomingtonBuzz) | 📍 [See current iOS work](#experience)`,
-      suggestions: ["Tell me about his current job", "What other projects has he built?"]
+  🔗 [View on GitHub](https://github.com/IshanApte/BloomingtonBuzz)`,
+      suggestions: ["What other projects has he built?", "Tell me about his iOS work"]
     },
   
     // === SKILLS & TECHNICAL EXPERTISE ===
@@ -115,26 +115,8 @@ export const knowledgeBase = [
   🌐 Full-stack Development (300+ requests/min handled)
   📱 Mobile Development (iOS with SwiftUI)
   
-  🔗 [View All Projects](https://github.com/IshanApte) | 📄 [Download Resume](/IshanApte_Resume.pdf)`,
-      suggestions: ["Show me his AI projects", "Tell me about his experience", "What languages does he know best?"]
-    },
-  
-    // === EXPERIENCE & CURRENT WORK ===
-    {
-      keywords: ["experience", "work", "job", "current", "indiana university", "software developer"],
-      answer: `💼 **Current Experience**:
-  
-  **Software Developer** | Indiana University (Jun 2025 - Ongoing)
-  • **iOS app development** using SwiftUI for event discovery
-  • **5 key features** including MapKit integration
-  • **20+ user testing sessions** with continuous feedback integration
-  
-  **Previous Experience**:
-  • **Machine Learning Engineer** | PICT (Jan 2023 - Aug 2023): CNN weather classification
-  • **Web Developer** | FinQuest India (Jan 2022 - Sep 2022): Front-end development with Bootstrap & React
-  
-  🏢 [View Experience Timeline](#experience) | 💼 [Connect Professionally](https://www.linkedin.com/in/ishan-apte-1489a9213/)`,
-      suggestions: ["Tell me about his education", "What projects is he working on?", "How can I contact him?"]
+  🔗 [View All Projects](https://github.com/IshanApte)`,
+      suggestions: ["Show me his AI projects", "What languages does he know best?", "Tell me about his projects"]
     },
   
     // === EDUCATION ===
@@ -166,9 +148,7 @@ export const knowledgeBase = [
   • **Academic Excellence**: 88% accuracy in weather classification research
   • **Community Impact**: EventCraft reduced planning time by 35% for IMU Catering
   
-  **Current Recognition**: Developing official iOS app for Indiana University
-  
-  🏅 [See All Achievements](#experience) | 📄 [Read Published Work](/IshanApte_Resume.pdf)`,
+  **Current Recognition**: Developing official iOS app for Indiana University`,
       suggestions: ["Tell me about his current projects", "How can I contact him?", "What are his technical skills?"]
     },
   
@@ -181,7 +161,6 @@ export const knowledgeBase = [
   📧 **Email**: [ishan.apte01@gmail.com](mailto:ishan.apte01@gmail.com)
   💼 **LinkedIn**: [linkedin.com/in/ishan-apte-1489a9213](https://www.linkedin.com/in/ishan-apte-1489a9213/)
   💻 **GitHub**: [github.com/IshanApte](https://github.com/IshanApte)
-  📄 **Resume**: [Download Latest](/IshanApte_Resume.pdf)
   
   **Quick Actions**:
   🤝 ishan.apte01@gmail.com
@@ -199,7 +178,7 @@ export const knowledgeBase = [
   
   **Status**: Actively seeking Software Developer and AI Engineer positions
   **Graduation**: May 2025 from Indiana University Bloomington
-  **Current**: Software Developer at IU, open to full-time opportunities
+  **Available**: Open to full-time opportunities
   
   **What he brings**:
   🤖 **AI Engineering**: 85% accuracy NLP systems, LangGraph expertise
@@ -208,7 +187,7 @@ export const knowledgeBase = [
   
   **Ready for**: Full-time roles starting Summer 2025
   
-  📧 ishan.apte01@gmail.com | 💼 [View LinkedIn](https://www.linkedin.com/in/ishan-apte-1489a9213/) | 📄 [Download Resume](/IshanApte_Resume.pdf)`,
+  📧 ishan.apte01@gmail.com | 💼 [View LinkedIn](https://www.linkedin.com/in/ishan-apte-1489a9213/)`,
       suggestions: ["Tell me about his AI projects", "What are his technical skills?", "Show me his portfolio"]
     },
   
@@ -239,14 +218,13 @@ export const knowledgeBase = [
   🚀 **Explore More**:
   • [View All Projects](https://github.com/IshanApte)
   • [Read Technical Blog](https://github.com/IshanApte)
-  • [Download Resume](/IshanApte_Resume.pdf)
   
   📞 **Get In Touch**:
   • ishan.apte01@gmail.com
   • [Connect on LinkedIn](https://www.linkedin.com/in/ishan-apte-1489a9213/)
   • [Check out GitHub](https://github.com/IshanApte)
   
-  Feel free to ask me anything else about his AI projects, technical skills, or experience!`,
+  Feel free to ask me anything else about his AI projects or technical skills!`,
       suggestions: ["Tell me about BrainstormAI", "What are his latest projects?", "Is he available for work?"]
     }
   ];

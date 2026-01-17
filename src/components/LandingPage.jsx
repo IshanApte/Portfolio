@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { navLinks } from '../constants';
 
 const LandingPage = () => {
-  const resumeLink = navLinks.find(link => link.id === 'resume');
 
   return (
     <>
@@ -85,20 +83,6 @@ const LandingPage = () => {
               style={{ backgroundColor: '#2563EB' }}
             >
               View my products
-            </a>
-
-            {/* Secondary CTA - Download resume */}
-            <a
-              href={resumeLink?.href || "/IshanApte_Resume.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold py-3 px-6 rounded-full border-2 transition-all duration-300 hover:bg-opacity-10 transform hover:scale-105"
-              style={{ 
-                borderColor: '#2563EB',
-                color: '#2563EB'
-              }}
-            >
-              Download resume
             </a>
 
             {/* Secondary CTA - LinkedIn */}
