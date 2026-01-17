@@ -134,10 +134,7 @@ const experiences = [
     iconBg: "#ffffff",
     date: "June 2025 - Ongoing",
     type: "work",
-    points: [
-      "Developing an iOS event discovery app for Indiana University using SwiftUI, implementing 5 key features including interactive mapping (MapKit) and location-based recommendations (CoreLocation).",
-      "Conducted user testing with 20+ peers, incorporating feedback that enhances user experience by streamlining event discovery for the campus community.",
-    ],
+    points: [],
   },
   {
     title: "Indiana University Bloomington",
@@ -152,26 +149,21 @@ const experiences = [
     ],
   },
   {
-    title: "Machine Learning Engineer",
+    title: "Software Developer",
     company_name: "Pune Institute of Computer Technology",
     icon: pictLogo,
     iconBg: "#ffffff",
     date: "Jan 2023 - Aug 2023",
     type: "work",
-    points: [
-      "Implemented a Convolutional Neural Network for weather condition classification with an 88% accuracy, contributing key findings to the project",
-    ],
+    points: [],
   },
   {
-    title: "Web Developer",
+    title: "Software Developer",
     company_name: "FinQuest India",
     iconBg: "#ffffff",
     date: "Jan 2022 - Sep 2022",
     type: "work",
-    points: [
-      "Designed the front-end of a website that showcases news articles produced by FinQuest",
-      "Experimented with Bootstrap to produce an eye-catching grid display of articles using the ReactJs Framework",
-    ],
+    points: [],
   },
   {
     title: "Pune Institute Of Computer Technology",
