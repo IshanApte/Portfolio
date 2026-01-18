@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
         <li><strong>IP address</strong>: Collected via HTTP request headers for rate limiting purposes</li>
         <li><strong>User Agent</strong>: Browser information used to create an anonymous hash for rate limiting</li>
     </ul>
-    <p>These are standard HTTP headers automatically transmitted with all web requests. We use this information solely for rate limiting (50 requests per day per user) and do not use it for tracking or identification purposes.</p>
+    <p>These are standard HTTP headers automatically transmitted with all web requests. We use this information solely for rate limiting (10 requests per day per user) and do not use it for tracking or identification purposes.</p>
 
     <h3>3. User Preferences (Stored Locally Only)</h3>
     <p>Nerdling stores the following preferences locally in your browser using Chrome's storage API:</p>
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
     <p>We use the collected information solely for the following purposes:</p>
     <ol>
         <li><strong>Providing Explanations</strong>: Selected text and context are sent to our API to generate AI-powered explanations, definitions, analogies, and examples based on your chosen mode.</li>
-        <li><strong>Rate Limiting</strong>: IP address and user agent information are used to enforce usage limits (50 requests per day) to ensure fair usage and service availability.</li>
+        <li><strong>Rate Limiting</strong>: IP address and user agent information are used to enforce usage limits (10 requests per day) to ensure fair usage and service availability.</li>
         <li><strong>Service Improvement</strong>: We may analyze usage patterns in aggregate, anonymized form to improve our service. Individual user data is not analyzed or used for this purpose.</li>
     </ol>
 
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
     <ul>
         <li><strong>Stop Using the Extension</strong>: Simply uninstall the extension to stop all data collection.</li>
         <li><strong>Clear Local Data</strong>: You can clear stored preferences by uninstalling the extension or using Chrome's storage management tools.</li>
-        <li><strong>Rate Limit</strong>: The 50 requests per day limit applies per user (identified by IP address and user agent). This limit resets daily at midnight UTC.</li>
+        <li><strong>Rate Limit</strong>: The 10 requests per day limit applies per user (identified by IP address and user agent). This limit resets daily at midnight UTC.</li>
     </ul>
 
     <h2>Information We Do NOT Collect</h2>
