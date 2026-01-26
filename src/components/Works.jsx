@@ -51,9 +51,10 @@ const ProjectCard = ({
 
   // Determine secondary button: prioritize case study, fallback to code
   const hasCaseStudy = case_study_link && case_study_link.trim() !== '';
-  const secondaryButtonLink = hasCaseStudy ? case_study_link : source_code_link;
-  const secondaryButtonText = hasCaseStudy ? 'Case Study →' : 'Code →';
-  const secondaryButtonHandler = hasCaseStudy ? handleCaseStudyClick : handleCodeClick;
+  const hasSourceCode = source_code_link && source_code_link.trim() !== '';
+  const secondaryButtonLink = hasCaseStudy ? case_study_link : (hasSourceCode ? source_code_link : null);
+  const secondaryButtonText = hasCaseStudy ? 'Case Study →' : (hasSourceCode ? 'Code →' : '');
+  const secondaryButtonHandler = hasCaseStudy ? handleCaseStudyClick : (hasSourceCode ? handleCodeClick : null);
 
   // Custom premium easing: cubic-bezier(0.16, 1, 0.3, 1)
   const premiumEase = [0.16, 1, 0.3, 1];
@@ -103,16 +104,18 @@ const ProjectCard = ({
             }}
           />
           {/* GitHub Icon Overlay */}
-          <div className="absolute top-4 right-4">
-            <button
-              onClick={handleGitHubIconClick}
-              className="w-10 h-10 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center 
-                       hover:bg-black hover:scale-110 transition-all duration-300 shadow-lg z-10"
-              aria-label="View source code"
-            >
-              <img src={github} alt="GitHub" className="w-5 h-5" style={{ filter: 'invert(1)' }} />
-            </button>
-          </div>
+          {source_code_link && source_code_link.trim() !== '' && (
+            <div className="absolute top-4 right-4">
+              <button
+                onClick={handleGitHubIconClick}
+                className="w-10 h-10 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center 
+                         hover:bg-black hover:scale-110 transition-all duration-300 shadow-lg z-10"
+                aria-label="View source code"
+              >
+                <img src={github} alt="GitHub" className="w-5 h-5" style={{ filter: 'invert(1)' }} />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Content Section */}
@@ -164,20 +167,22 @@ const ProjectCard = ({
                 Live Demo →
               </motion.button>
             )}
-            <motion.button
-              onClick={secondaryButtonHandler}
-              className={`${live_demo_link ? 'px-4' : 'flex-1'} bg-white text-text-primary font-semibold py-2.5 rounded-full
-                       border-2 border-text-primary/20 hover:border-accent text-sm`}
-              whileHover={{
-                scale: 1.05,
-                transition: {
-                  duration: 0.2,
-                  ease: premiumEase,
-                },
-              }}
-            >
-              {secondaryButtonText}
-            </motion.button>
+            {secondaryButtonLink && secondaryButtonHandler && (
+              <motion.button
+                onClick={secondaryButtonHandler}
+                className={`${live_demo_link ? 'px-4' : 'flex-1'} bg-white text-text-primary font-semibold py-2.5 rounded-full
+                         border-2 border-text-primary/20 hover:border-accent text-sm`}
+                whileHover={{
+                  scale: 1.05,
+                  transition: {
+                    duration: 0.2,
+                    ease: premiumEase,
+                  },
+                }}
+              >
+                {secondaryButtonText}
+              </motion.button>
+            )}
           </motion.div>
         </div>
       </motion.div>

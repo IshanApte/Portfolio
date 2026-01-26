@@ -52,18 +52,17 @@ export const knowledgeBase = [
   
     // === FULL-STACK & WEB DEVELOPMENT ===
     {
-      keywords: ["sportconnect", "mern", "full-stack", "social app", "web development", "oauth"],
-      answer: `⚽ **SportConnect** (Mar 2024 – Jun 2024):
+      keywords: ["nerdling", "chrome extension", "definition", "in-page", "floating ui", "cloudflare workers", "llm"],
+      answer: `📖 **Nerdling** - In-Page Definition Assistant:
   
-  • **Full-stack MERN social application** for sports enthusiasts
-  • **300+ requests/min** processing capability
-  • **JWT & OAuth** authentication (Google/Facebook)
-  • **Real-time features**: Chat, posts, comments, profiles
-  • **Security**: bcrypt hashing, reCAPTCHA, nodemailer
+  • **Chrome extension** that drops instant explanations right where you're reading
+  • **Four explanation modes**: Simple (LIKE I'M 5), Technical (DEFINE), Analogy, and Example
+  • **Context-aware understanding** without leaving the page
+  • **Built with**: Chrome Extension APIs, Cloudflare Workers, Floating UI, LLM integration
   
-  **Tech Stack**: MERN, Docker, CI/CD, OAuth
+  **Innovation**: Never lose your place switching tabs - get definitions and explanations instantly in-page
   
-  🔗 [View Project](https://github.com/IshanApte/SportConnect) | 🚀 [See Live Demo](https://github.com/IshanApte/SportConnect)`,
+  🚀 [Install from Chrome Web Store](https://chromewebstore.google.com/detail/nerdling-in-page-definiti/akkknmodhphepelgkikghbhphgaokdop)`,
       suggestions: ["Tell me about EventCraft", "What mobile apps has he built?", "Show me his AI work"]
     },
   
@@ -198,14 +197,14 @@ export const knowledgeBase = [
   
   Yes, Ishan is a devoted (and often disappointed!) Manchester United supporter. This passion for football actually connects to his technical work:
   
-  • **SportConnect project** was inspired by connecting people through shared sports interests
+  • **Nerdling project** helps readers understand content without breaking their flow
   • **Community building**: Just like his MERN Stack talk reached 50+ developers
   • **Resilience**: Supporting United has taught him persistence (essential for debugging!)
   
   **Fun fact**: His sports enthusiasm led to building a full-stack social app that handles 300+ requests per minute!
   
-  🔗 [See SportConnect Project](https://github.com/IshanApte) | ⚽ ishan.apte01@gmail.com`,
-      suggestions: ["Tell me about SportConnect", "What other projects has he built?", "How can I contact him?"]
+  🔗 [See Nerdling Extension](https://chromewebstore.google.com/detail/nerdling-in-page-definiti/akkknmodhphepelgkikghbhphgaokdop) | ⚽ ishan.apte01@gmail.com`,
+      suggestions: ["Tell me about Nerdling", "What other projects has he built?", "How can I contact him?"]
     },
   
     // === CATCH-ALL & THANKS ===

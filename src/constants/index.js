@@ -20,7 +20,7 @@ import sqlLogo from '../assets/tech/sql.png';
 import pictLogo from '../assets/company/pict.png';
 import iuLogo from '../assets/company/iu.png';
 
-import sportsImage from '../assets/sports.jpg';
+import nerdlingImage from '../assets/NerdlingThumbnail.png';
 import planningImage from '../assets/planning.png';
 // import plantImage from '../assets/plant.png';
 import bloomingtonBuzzImage from '../assets/BloomingtonBuzz.png';
@@ -261,19 +261,20 @@ const projects = [
     case_study_link: "",
   },
   {
-    name: "SportConnect",
-    subtitle: "Social network for athletes",
-    impact: "A full-stack MERN social application enabling users to connect based on shared sports interests.",
-    description: "Full-stack social platform with secure JWT & OAuth authentication, real-time chat via Socket.io, and robust RESTful APIs handling high user request volumes.",
+    name: "Nerdling",
+    subtitle: "In-page definition assistant",
+    impact: "Nerdling drops instant explanations right where you're reading, so you never lose your place switching tabs to look up a word.",
+    description: "Select any text, pick how you want to understand it (simple, technical, analogy, or example), and keep moving.",
     tags: [
-      { name: "MERN Stack", color: "blue-text-gradient" },
-      { name: "Docker", color: "green-text-gradient" },
-      { name: "Socket.io", color: "pink-text-gradient" },
+      { name: "Chrome Extension", color: "blue-text-gradient" },
+      { name: "Cloudflare Workers", color: "green-text-gradient" },
+      { name: "Floating UI", color: "pink-text-gradient" },
+      { name: "LLM", color: "purple-text-gradient" },
     ],
-    image: sportsImage,
-    source_code_link: "https://github.com/IshanApte/SportsConnect",
-    // live_demo_link: "https://sport-connect.onrender.com/",
-    case_study_link: "https://medium.com/@ishanapte/sportconnect-connecting-sports-enthusiasts-through-a-full-stack-mern-application-36946979568b",
+    image: nerdlingImage,
+    source_code_link: "",
+    live_demo_link: "https://chromewebstore.google.com/detail/nerdling-in-page-definiti/akkknmodhphepelgkikghbhphgaokdop",
+    case_study_link: "",
   },
 ] ;
 

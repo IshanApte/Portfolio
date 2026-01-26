@@ -64,10 +64,10 @@ export const linkDatabase = {
       text: "Super Agent Project",
       description: "85% accuracy NLP intent detection system"
     },
-    sportconnect: {
-      url: "https://github.com/IshanApte/SportConnect",
-      text: "SportConnect App",
-      description: "Full-stack MERN social application"
+    nerdling: {
+      url: "https://chromewebstore.google.com/detail/nerdling-in-page-definiti/akkknmodhphepelgkikghbhphgaokdop",
+      text: "Nerdling Chrome Extension",
+      description: "In-page definition assistant with instant explanations"
     },
     eventcraft: {
       url: "https://github.com/IshanApte/EventCraft",
