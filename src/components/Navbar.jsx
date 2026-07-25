@@ -34,7 +34,7 @@ const Navbar = () => {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-transparent backdrop-blur-sm`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='w-full flex justify-between items-center max-w-[90rem] mx-auto'>
         <RouterLink
           to='/'
           className='flex items-center gap-2'

@@ -1,12 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap, SplitText } from '../utils/gsap';
 
 const LandingPage = () => {
+  const heroRef = useRef(null);
+  const headingRef = useRef(null);
+  const subTextRef = useRef(null);
+  const chipsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero image gently recedes as the page scrolls past it
+      gsap.to(heroRef.current, {
+        scale: 0.94,
+        opacity: 0.8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      // Text intro timeline, skipped entirely for reduced-motion users
+      gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+        SplitText.create(headingRef.current, {
+          type: 'words',
+          mask: 'words',
+          onSplit(self) {
+            return gsap
+              .timeline({ defaults: { ease: 'power3.out' } })
+              .from(self.words, {
+                yPercent: 120,
+                opacity: 0,
+                stagger: 0.08,
+                duration: 0.8,
+              })
+              .from(subTextRef.current, { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+              .from(chipsRef.current, { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+              .from(ctaRef.current, { y: 20, opacity: 0, duration: 0.6 }, '-=0.4');
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
       {/* Hero Section with Background Image */}
-      <div 
+      <div
+        ref={heroRef}
         className="relative w-full h-[50vh] md:h-[67vh] flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage: 'url(/1.png)',
@@ -21,68 +67,47 @@ const LandingPage = () => {
       </div>
 
       {/* Content Section Below Hero */}
-      <div 
+      <div
         className="w-full py-16 px-6"
         style={{ backgroundColor: '#F9FAFB' }}
       >
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto"
-        >
+        <div className="text-center max-w-3xl mx-auto">
           {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <h1
+            ref={headingRef}
             className="text-4xl md:text-5xl lg:text-4xl font-black mb-3 tracking-tight leading-tight"
             style={{ color: '#0F172A' }}
           >
-            Product Engineer
-          </motion.h1>
+            Software Engineer
+          </h1>
 
           {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl mb-3 leading-normal font-normal max-w-2xl mx-auto"
+          <p
+            ref={subTextRef}
+            className="text-lg md:text-xl mb-3 leading-normal font-normal max-w-2xl md:max-w-none mx-auto md:whitespace-nowrap"
             style={{ color: '#64748B' }}
           >
-            Designing and shipping AI-powered products end-to-end.
-          </motion.p>
+            Full-stack engineer shipping end-to-end systems in React and Java.
+          </p>
 
           {/* Chips */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mb-4"
-          >
+          <div ref={chipsRef} className="mb-4">
             <div className="flex flex-wrap justify-center items-center gap-2 text-sm" style={{ color: '#64748B' }}>
-              <span>San Jose, CA</span>
+              <span>Dallas, TX</span>
               <span>·</span>
-              <span>Actively interviewing</span>
-              <span>·</span>
-              <span>Software Engineer roles</span>
+              <span>Software Engineer @ Copart</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap justify-center items-center gap-4"
-          >
+          <div ref={ctaRef} className="flex flex-wrap justify-center items-center gap-4">
             {/* Primary CTA */}
             <a
               href="#projects"
               className="font-semibold py-3 px-6 rounded-full text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
               style={{ backgroundColor: '#2563EB' }}
             >
-              View my products
+              View my work
             </a>
 
             {/* Secondary CTA - LinkedIn */}
@@ -91,18 +116,18 @@ const LandingPage = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold py-3 px-6 rounded-full border-2 transition-all duration-300 hover:bg-opacity-10 transform hover:scale-105"
-              style={{ 
+              style={{
                 borderColor: '#2563EB',
                 color: '#2563EB'
               }}
             >
               LinkedIn
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </>
   );
 };
 
-export default LandingPage; 
+export default LandingPage;

@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer className={`${styles.paddingX} w-full py-5 bg-background`}>
-      <div className="w-full flex flex-col items-center max-w-7xl mx-auto">
+      <div className="w-full flex flex-col items-center max-w-[90rem] mx-auto">
         {/* Center with logo and info */}
         <div className="flex flex-col items-center">
           <Link
