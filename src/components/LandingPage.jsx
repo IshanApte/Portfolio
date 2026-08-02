@@ -78,7 +78,7 @@ const LandingPage = () => {
             className="text-4xl md:text-5xl lg:text-4xl font-black mb-3 tracking-tight leading-tight"
             style={{ color: '#0F172A' }}
           >
-            Software Engineer
+            <span className="sr-only">Ishan Apte — </span>Software Engineer
           </h1>
 
           {/* Subtext */}

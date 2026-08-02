@@ -85,5 +85,5 @@ Allow: /
 Disallow: /api/
 Disallow: /*.json$
 
-# Sitemap location (if you have one)
-# Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap location
+Sitemap: https://ishan.info/sitemap.xml
