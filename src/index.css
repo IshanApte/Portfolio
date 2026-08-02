@@ -13,15 +13,6 @@
   color-scheme: light;
 }
 
-.vertical-timeline::before {
-  background-color: #64748B; /* Secondary text color for vertical line */
-}
-
-.date-class {
-  color: #64748B; /* Secondary text color for dates */
-}
-
-
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;

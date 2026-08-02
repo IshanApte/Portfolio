@@ -17,10 +17,6 @@ import reactLogo from '../assets/tech/reactjs.png';
 import aimlLogo from '../assets/tech/aiml.png';
 import sqlLogo from '../assets/tech/sql.png';
 
-import pictLogo from '../assets/company/pict.png';
-import iuLogo from '../assets/company/iu.png';
-import copartLogo from '../assets/copart.png';
-
 import nerdlingImage from '../assets/NerdlingThumbnail.png';
 import planningImage from '../assets/planning.png';
 // import plantImage from '../assets/plant.png';
@@ -132,8 +128,6 @@ const experiences = [
   {
     title: "Software Engineer",
     company_name: "Copart",
-    icon: copartLogo,
-    iconBg: "#ffffff",
     date: "April 2026 - Ongoing",
     type: "work",
     points: [],
@@ -141,8 +135,6 @@ const experiences = [
   {
     title: "Software Developer",
     company_name: "Indiana University Bloomington",
-    icon: iuLogo,
-    iconBg: "#ffffff",
     date: "June 2025 - March 2026",
     type: "work",
     points: [],
@@ -150,8 +142,6 @@ const experiences = [
   {
     title: "Indiana University Bloomington",
     company_name: "Graduate",
-    icon: iuLogo,
-    iconBg: "#ffffff",
     date: "August 2023 - May 2025",
     type: "education",
     points: [
@@ -162,8 +152,6 @@ const experiences = [
   {
     title: "Software Developer",
     company_name: "Pune Institute of Computer Technology",
-    icon: pictLogo,
-    iconBg: "#ffffff",
     date: "Jan 2023 - Aug 2023",
     type: "work",
     points: [],
@@ -171,7 +159,6 @@ const experiences = [
   {
     title: "Software Developer",
     company_name: "FinQuest India",
-    iconBg: "#ffffff",
     date: "Jan 2022 - Sep 2022",
     type: "work",
     points: [],
@@ -179,8 +166,6 @@ const experiences = [
   {
     title: "Pune Institute Of Computer Technology",
     company_name: "Undergraduate",
-    icon: pictLogo,
-    iconBg: "#ffffff",
     date: "August 2019 - May 2023",
     type: "education",
     points: [
