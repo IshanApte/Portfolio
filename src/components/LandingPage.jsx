@@ -95,7 +95,9 @@ const LandingPage = () => {
             <div className="flex flex-wrap justify-center items-center gap-2 text-sm" style={{ color: '#64748B' }}>
               <span>Dallas, TX</span>
               <span>·</span>
-              <span>Software Engineer @ Copart</span>
+              <span>
+                Software Engineer <span style={{ color: '#1254FF', fontWeight: 600 }}>@ Copart</span>
+              </span>
             </div>
           </div>
 
