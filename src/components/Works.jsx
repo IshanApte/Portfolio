@@ -101,7 +101,9 @@ const BentoTile = ({
           {/* Content */}
           <div className="absolute inset-x-0 bottom-0 p-4 lg:p-5 flex flex-col gap-1">
             <h3 className="text-white font-bold text-lg lg:text-xl truncate drop-shadow-md">{name}</h3>
-            <p className="text-white/90 text-xs lg:text-sm drop-shadow-md">{tagline}</p>
+            <p className="hidden lg:block text-white/90 text-xs lg:text-sm drop-shadow-md lg:opacity-0 lg:group-hover:opacity-100 lg:max-h-0 lg:group-hover:max-h-10 overflow-hidden transition-all duration-300">
+              {tagline}
+            </p>
 
             {/* Tags: least essential info, so they're the one thing dropped on mobile and hover-only on desktop */}
             <p className="hidden lg:block text-white/70 text-[10px] lg:text-xs uppercase tracking-wide drop-shadow-md lg:opacity-0 lg:group-hover:opacity-100 lg:max-h-0 lg:group-hover:max-h-6 lg:group-hover:mt-1 overflow-hidden transition-all duration-300">
