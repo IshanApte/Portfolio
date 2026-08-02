@@ -144,10 +144,6 @@ const experiences = [
     company_name: "Graduate",
     date: "August 2023 - May 2025",
     type: "education",
-    points: [
-      "Applied Algorithms, Advanced Database Concepts",
-      "Knowledge based AI, Software Engineering",
-    ],
   },
   {
     title: "Software Developer",
@@ -168,11 +164,6 @@ const experiences = [
     company_name: "Undergraduate",
     date: "August 2019 - May 2023",
     type: "education",
-    points: [
-      "PICT Hackathon 2022 Runner Up - Home Security Device using old smartphones",
-      "Conducted Talk on Basics of Web Development - MERN Stack",
-      "Machine Learning Paper Published - Sentiment Analysis",
-    ],
   },
 ];
 

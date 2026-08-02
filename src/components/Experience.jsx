@@ -8,7 +8,6 @@ import { textVariant } from "../utils/motion";
 
 const educationColor = "#003366";
 const workColor = "#014d4e";
-const defaultColor = "#03346E";
 
 const boldImportantWords = (text) => {
   const importantWords = [
@@ -40,44 +39,53 @@ const boldImportantWords = (text) => {
   return formattedText;
 };
 
-const ExperienceRow = ({ experience, isLast }) => {
-  const dotColor =
-    experience.type === 'education' ? educationColor :
-    experience.type === 'work' ? workColor :
-    defaultColor;
+const ExperienceRow = ({ experience, isLast, index }) => {
+  const dotColor = experience.type === 'education' ? educationColor : workColor;
+  const hasPoints = (experience.points?.length ?? 0) > 0;
 
   return (
-    <div className='relative flex gap-5 pb-8'>
+    <motion.div
+      className={`relative flex gap-4 ${isLast ? '' : 'pb-5'}`}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: 'easeOut' }}
+    >
       <div className='relative flex flex-col items-center'>
         <span
-          className='w-3.5 h-3.5 rounded-full mt-1 shrink-0 ring-4 ring-white'
+          className='w-3 h-3 rounded-full mt-4 shrink-0 ring-4 ring-white'
           style={{ backgroundColor: dotColor }}
         />
         {!isLast && (
-          <span className='w-px flex-1 mt-1' style={{ backgroundColor: '#64748B33' }} />
+          <span className='w-px flex-1 mt-1' style={{ backgroundColor: '#64748B40' }} />
         )}
       </div>
 
-      <div className='pb-1'>
-        <p className='text-[13px] font-semibold tracking-wide' style={{ color: '#64748B' }}>
-          {experience.date}
-        </p>
-        <h3 className='text-text-primary text-[18px] font-bold mt-0.5'>{experience.title}</h3>
-        <p className='text-text-secondary text-[14px] font-medium'>{experience.company_name}</p>
+      <div
+        className='flex-1 rounded-xl border border-black/5 bg-white/60 px-4 py-3 shadow-sm'
+        style={{ borderLeft: `3px solid ${dotColor}` }}
+      >
+        <h3 className='text-text-primary text-[17px] font-bold leading-snug'>
+          {experience.title}
+          <span className='text-text-secondary text-[13px] font-normal ml-2'>
+            {experience.date}
+          </span>
+        </h3>
+        <p className='text-text-secondary text-[14px] font-medium mt-0.5'>{experience.company_name}</p>
 
-        {experience.points.length > 0 && (
-          <ul className='mt-2 list-disc ml-5 space-y-1'>
+        {hasPoints && (
+          <ul className='mt-1.5 list-disc pl-4 space-y-1'>
             {experience.points.map((point, index) => (
               <li
                 key={`experience-point-${index}`}
-                className='text-text-secondary text-[13px] pl-1 tracking-wide'
+                className='text-text-secondary text-[13px] tracking-wide'
                 dangerouslySetInnerHTML={{ __html: boldImportantWords(point) }}
               />
             ))}
           </ul>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -99,6 +107,7 @@ const Experience = () => {
             key={`experience-${index}`}
             experience={experience}
             isLast={index === experiences.length - 1}
+            index={index}
           />
         ))}
       </div>
