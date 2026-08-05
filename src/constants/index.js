@@ -284,15 +284,16 @@ const projects = [
   {
     name: "Fall Into Flow",
     subtitle: "Adaptive focus music for iOS",
-    tagline: "Background music that fades to your focus — custom volume curves and a study session timer.",
+    tagline: "For people who can't focus with music, or without it.",
     impact: "",
-    description: "",
+    description: "Fall Into Flow is an iOS app that lets your music fade to silence over a curve you draw yourself, so a flow session ends gently instead of cutting off. Built around a single-screen drag-to-shape UI with live scrubbing preview, it turns a fade timer into a tactile, musical instrument.",
     tags: [
       { name: "iOS", color: "blue-text-gradient" },
       { name: "SwiftUI", color: "green-text-gradient" },
       { name: "AVAudioEngine", color: "pink-text-gradient" },
     ],
     image: fallIntoFlowImage,
+    videoSrc: "/videos/Fall_Into_Flow.mp4",
     imagePosition: "top",
     imageScale: 0.84,
     frame: "phone",

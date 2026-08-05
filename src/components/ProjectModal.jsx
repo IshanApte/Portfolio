@@ -137,8 +137,8 @@ const ProjectModal = ({ project, onClose }) => {
               <div className="flex flex-col md:flex-row max-h-[90vh]">
                 <div className="md:w-[42%] shrink-0 bg-gradient-to-b from-accent/25 via-text-primary to-text-primary flex items-center justify-center p-6 md:p-8">
                   <div className="relative w-full max-w-[220px] aspect-[9/19.5] rounded-[2rem] overflow-hidden ring-1 ring-white/10 shadow-xl bg-black">
-                    <div className="absolute top-0 inset-x-0 h-6 z-10 bg-black flex items-end justify-center pb-1 pointer-events-none">
-                      <div className="w-12 h-2 bg-[#1c1c1e] rounded-full ring-1 ring-white/10" />
+                    <div className="absolute top-0 inset-x-0 h-5 z-10 bg-black flex items-end justify-center pb-0.5 pointer-events-none">
+                      <div className="w-10 h-1.5 bg-[#1c1c1e] rounded-full ring-1 ring-white/10" />
                     </div>
                     {mediaEl}
                   </div>
