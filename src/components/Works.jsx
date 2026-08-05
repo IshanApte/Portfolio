@@ -1,10 +1,11 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
 import { projects, processTile } from "../constants";
 import { gsap } from "../utils/gsap";
 import ShinyText from "./ShinyText";
+import ProjectModal from "./ProjectModal";
 
 // Custom premium easing: cubic-bezier(0.16, 1, 0.3, 1)
 const premiumEase = [0.16, 1, 0.3, 1];
@@ -45,6 +46,7 @@ const BentoTile = ({
   case_study_link,
   className,
   cardRef,
+  onOpen,
 }) => {
   const handleLiveDemoClick = (e) => {
     e.preventDefault();
@@ -66,7 +68,11 @@ const BentoTile = ({
   const tagLine = tags.map((tag) => tag.name).join(" · ");
 
   return (
-    <div ref={cardRef} className={`group relative h-72 lg:h-full hover:z-10 ${className}`}>
+    <div
+      ref={cardRef}
+      onClick={onOpen}
+      className={`group relative h-72 lg:h-full hover:z-10 cursor-pointer ${className}`}
+    >
       <motion.div className="relative w-full h-full" whileHover={popHover}>
         <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-lg">
           {/* Background layer: real screenshot or styled placeholder. Solid matte behind the
@@ -200,6 +206,7 @@ const Works = () => {
   const gridRef = useRef(null);
   const cardsRef = useRef([]);
   cardsRef.current = [];
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -240,10 +247,13 @@ const Works = () => {
               {...projectsByName[tile.projectName]}
               className={tile.lgClasses}
               cardRef={(el) => (cardsRef.current[index] = el)}
+              onOpen={() => setSelectedProject(projectsByName[tile.projectName])}
             />
           )
         )}
       </div>
+
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
 
       <div className="mt-16 text-center">
         <a
