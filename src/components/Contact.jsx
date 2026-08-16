@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { fadeIn } from "../utils/motion";
 import linkedin from "../assets/linkedin.svg";
-import github from "../assets/github.png";
+import github from "../assets/github.webp";
 import gmail from "../assets/gmail.png";
 
 const Contact = () => {

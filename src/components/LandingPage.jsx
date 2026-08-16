@@ -55,7 +55,7 @@ const LandingPage = () => {
         ref={heroRef}
         className="relative w-full h-[50vh] md:h-[67vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: 'url(/1.png)',
+          backgroundImage: 'url(/1.webp)',
           backgroundPosition: 'center center',
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',

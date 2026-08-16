@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { menu, close } from "../assets";
-import logo from '../assets/LOGO.png';
+import logo from '../assets/LOGO.webp';
 
 const Navbar = () => {
   const [active, setActive] = useState("");

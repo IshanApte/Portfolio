@@ -17,14 +17,14 @@ import reactLogo from '../assets/tech/reactjs.png';
 import aimlLogo from '../assets/tech/aiml.png';
 import sqlLogo from '../assets/tech/sql.png';
 
-import nerdlingImage from '../assets/NerdlingThumbnail.png';
+import nerdlingImage from '../assets/NerdlingThumbnail.webp';
 import planningImage from '../assets/planning.png';
 // import plantImage from '../assets/plant.png';
-import bloomingtonBuzzImage from '../assets/Bloomington_buzz_app_img.jpeg';
+import bloomingtonBuzzImage from '../assets/Bloomington_buzz_app_img.webp';
 import superAgentImage from '../assets/gmailagent.png';
-import brainstormAIImage from '../assets/BrainstormAI.png';
-import remindImage from '../assets/remind.png'; // placeholder - update when image is provided
-import fallIntoFlowImage from '../assets/IndigoBooking.jpeg';
+import brainstormAIImage from '../assets/BrainstormAI.webp';
+import remindImage from '../assets/remind.webp'; // placeholder - update when image is provided
+import fallIntoFlowImage from '../assets/IndigoBooking.webp';
 
 
 
