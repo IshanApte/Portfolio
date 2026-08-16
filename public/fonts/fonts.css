@@ -100,3 +100,20 @@
   src: url('/fonts/poppins-900.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+/* Metric-matched local fallback for Poppins (the global body/heading font, see
+   index.css). Poppins is noticeably wider/taller per-em than Arial/Helvetica,
+   so on first load the fallback text occupies a different box than Poppins
+   does once it swaps in, reflowing (and shifting) everything below the hero.
+   These ascent/descent/line-gap/size-adjust values were computed from the
+   actual Poppins woff2 metrics vs. the system Arial metrics (not guessed) so
+   the fallback box matches Poppins closely enough that the swap causes no
+   layout shift. Referenced from index.css's font-family stack. */
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('Arial');
+  ascent-override: 91.57%;
+  descent-override: 30.53%;
+  line-gap-override: 8.72%;
+  size-adjust: 114.67%;
+}
