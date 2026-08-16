@@ -14,20 +14,15 @@
     <!-- LCP hero image: rendered as a CSS background-image, so preload it explicitly with high priority -->
     <link rel="preload" as="image" href="/1.webp" fetchpriority="high" />
 
-    <!-- Fonts: preconnect + non-blocking load (single combined request) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts: self-hosted (avoids the fonts.googleapis.com round trip), non-blocking load -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      href="/fonts/fonts.css"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-      />
+      <link rel="stylesheet" href="/fonts/fonts.css" />
     </noscript>
 
     <!-- Open Graph -->
