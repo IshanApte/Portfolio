@@ -6,7 +6,7 @@ import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '..', 'dist');
@@ -63,12 +63,32 @@ const ROUTES = [
   { route: '/privacy-policy', out: 'privacy-policy/index.html', waitFor: 'h1' },
 ];
 
+// Vercel's build image lacks system libs (libnspr4.so etc.) that a plain
+// downloaded Chrome needs, so we use @sparticuz/chromium there; locally we
+// fall back to the full `puppeteer` package's own bundled Chrome for the host OS.
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    return puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  }
+  const fullPuppeteer = (await import('puppeteer')).default;
+  return puppeteer.launch({
+    executablePath: fullPuppeteer.executablePath(),
+    headless: 'new',
+  });
+}
+
 async function run() {
   const server = await startServer();
   const { port } = server.address();
   const baseUrl = `http://127.0.0.1:${port}`;
 
-  const browser = await puppeteer.launch({ headless: 'new' });
+  const browser = await launchBrowser();
 
   try {
     for (const { route, out, waitFor } of ROUTES) {
