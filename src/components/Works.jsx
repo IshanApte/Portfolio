@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
@@ -210,7 +210,7 @@ const Works = () => {
   cardsRef.current = [];
   const [selectedProject, setSelectedProject] = useState(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(cardsRef.current, {
