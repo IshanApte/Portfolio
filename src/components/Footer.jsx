@@ -18,9 +18,9 @@ const Footer = () => {
             <p className="text-text-primary text-[18px] cursor-pointer">
               Ishan Apte | Powered By: 
             </p>
-            <img src={nodejs} alt="NodeJs" className="w-9 h-9 object-contain" />
-            <img src={threejs} alt="threejs" className="w-9 h-9 object-contain" />
-            <img src={tailwind} alt="tailwind" className="w-9 h-9 object-contain" />
+            <img src={nodejs} alt="NodeJs" loading="lazy" decoding="async" className="w-9 h-9 object-contain" />
+            <img src={threejs} alt="threejs" loading="lazy" decoding="async" className="w-9 h-9 object-contain" />
+            <img src={tailwind} alt="tailwind" loading="lazy" decoding="async" className="w-9 h-9 object-contain" />
           </Link>
           
           {/* Privacy Policy Link */}

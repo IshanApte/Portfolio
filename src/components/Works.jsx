@@ -84,6 +84,8 @@ const BentoTile = ({
                 alt={`${name} project screenshot`}
                 className="w-full h-full object-cover rounded-3xl"
                 style={{ objectPosition: imagePosition }}
+                loading="lazy"
+                decoding="async"
                 initial={{ scale: imageScale }}
                 whileHover={{ scale: imageScale + 0.06, transition: { duration: 0.5, ease: premiumEase } }}
               />

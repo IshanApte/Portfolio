@@ -33,7 +33,7 @@ const Contact = () => {
       >
         {/* Email Button */}
         <div className="flex items-center bg-gray-100 rounded-full p-1 shadow-sm border border-gray-200">
-          <img src={gmail} alt="Email" className="w-8 h-8 mx-2"/>
+          <img src={gmail} alt="Email" loading="lazy" decoding="async" className="w-8 h-8 mx-2"/>
           <span className="text-gray-800 font-mono text-lg px-3">{email}</span>
           <button
             onClick={handleCopy}
@@ -51,7 +51,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="flex items-center justify-center bg-white rounded-full w-12 h-12 shadow-md hover:bg-gray-50 transition-all duration-300"
           >
-            <img src={linkedin} alt="LinkedIn" className="w-6 h-6" />
+            <img src={linkedin} alt="LinkedIn" loading="lazy" decoding="async" className="w-6 h-6" />
           </a>
           <a
             href="https://github.com/IshanApte"
@@ -59,7 +59,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="flex items-center justify-center bg-black rounded-full w-12 h-12 shadow-md hover:bg-gray-800 transition-all duration-300"
           >
-            <img src={github} alt="GitHub" className="w-7 h-7 object-contain" />
+            <img src={github} alt="GitHub" loading="lazy" decoding="async" className="w-7 h-7 object-contain" />
           </a>
         </div>
       </motion.div>

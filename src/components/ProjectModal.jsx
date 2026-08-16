@@ -52,6 +52,8 @@ const ProjectModal = ({ project, onClose }) => {
     <img
       src={image}
       alt={`${name} demo`}
+      loading="lazy"
+      decoding="async"
       className={isPhone ? "w-full h-full object-cover" : "w-full h-full object-contain"}
     />
   ) : (

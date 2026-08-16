@@ -1,13 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Works, CursorFilter, AnimatedSection} from "./components";
 import Footer from "./components/Footer";
-import BlogLayout from "./components/BlogLayout";
-import BlogPost from "./components/BlogPost";
-import FloatingChatbot from "./components/FloatingChatbot";
-import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+
+// Route-level and below-the-fold code splitting: none of these are needed
+// for the initial home page paint, so keep them out of the main bundle.
+const BlogLayout = lazy(() => import("./components/BlogLayout"));
+const BlogPost = lazy(() => import("./components/BlogPost"));
+const PrivacyPolicy = lazy(() => import("./components/legal/PrivacyPolicy"));
+const FloatingChatbot = lazy(() => import("./components/FloatingChatbot"));
 
 const App = () => {
   useEffect(() => {
@@ -60,26 +63,36 @@ const App = () => {
             </AnimatedSection>
             
             <Footer />
-            
+
             {/* Add the floating chatbot */}
-            <FloatingChatbot />
+            <Suspense fallback={null}>
+              <FloatingChatbot />
+            </Suspense>
           </div>
         } />
         <Route path="/blog" element={
           <div className="bg-background">
             <Navbar />
-            <BlogLayout />
+            <Suspense fallback={null}>
+              <BlogLayout />
+            </Suspense>
             <Footer />
           </div>
         } />
         <Route path="/blog/:id" element={
           <div className="bg-background">
             <Navbar />
-            <BlogPost />
+            <Suspense fallback={null}>
+              <BlogPost />
+            </Suspense>
             <Footer />
           </div>
         } />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy-policy" element={
+          <Suspense fallback={null}>
+            <PrivacyPolicy />
+          </Suspense>
+        } />
       </Routes>
     </BrowserRouter>
   );

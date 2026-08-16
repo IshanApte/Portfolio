@@ -19,6 +19,8 @@ const ServiceCard = ({ index, title, icon }) => (
         <img
           src={icon}
           alt='web-development'
+          loading='lazy'
+          decoding='async'
           className='w-16 h-16 object-contain'
         />
 
@@ -56,8 +58,10 @@ const About = () => {
 
 
         <img
-          src='/LinkedIn_Profile.jpeg' 
+          src='/LinkedIn_Profile.jpeg'
           alt='Ishan Apte'
+          loading='lazy'
+          decoding='async'
           className='w-48 h-48 rounded-full object-cover lg:ml-10 ml-4 lg:mr-8 mb-4 lg:mb-0'
           />
       </div>

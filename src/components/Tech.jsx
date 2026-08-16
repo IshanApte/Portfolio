@@ -21,9 +21,11 @@ const Tech = () => {
           whileHover={{ scale: 1.1 }}
           className='w-20 h-20 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-300'
         >
-          <img 
-            src={technology.icon} 
+          <img
+            src={technology.icon}
             alt={technology.name}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-contain"
           />
         </motion.div>
