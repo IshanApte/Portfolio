@@ -98,8 +98,17 @@ async function run() {
       await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
       await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
       await page.waitForSelector(waitFor, { timeout: 10000 }).catch(() => {});
-      const html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
+      let html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
       await page.close();
+
+      // The preload+onload CSS trick (async-css Vite plugin, fonts.css markup)
+      // flips rel="preload" to rel="stylesheet" once the browser loads it, so by
+      // the time we snapshot outerHTML here it's already in its post-load state.
+      // Revert that so the shipped HTML doesn't re-introduce render-blocking CSS.
+      html = html.replace(
+        /<link rel="stylesheet" as="style" href="([^"]+\.css)" onload="this\.onload=null;this\.rel='stylesheet'">/g,
+        (_match, href) => `<link rel="preload" as="style" href="${href}" onload="this.onload=null;this.rel='stylesheet'">`
+      );
 
       const outPath = path.join(distDir, out);
       await mkdir(path.dirname(outPath), { recursive: true });
