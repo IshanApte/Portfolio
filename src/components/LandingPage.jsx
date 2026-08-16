@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap, SplitText } from '../utils/gsap';
 
 const LandingPage = () => {
@@ -8,12 +8,14 @@ const LandingPage = () => {
   const chipsRef = useRef(null);
   const ctaRef = useRef(null);
 
-  // Text intro must run before first paint (useLayoutEffect) so animated users never
-  // see the un-hidden heading flash before GSAP sets its starting transform/opacity.
-  useLayoutEffect(() => {
+  // The heading starts hidden via CSS (.hero-heading-anim, index.css), not a
+  // blocking layout effect, so first paint of the hero never waits on GSAP/SplitText
+  // loading and executing. This effect just reveals it once the split is ready.
+  useEffect(() => {
     const ctx = gsap.context(() => {
       // Skipped entirely for reduced-motion users
       gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+        gsap.set(headingRef.current, { opacity: 1 });
         SplitText.create(headingRef.current, {
           type: 'words',
           mask: 'words',
@@ -85,7 +87,7 @@ const LandingPage = () => {
           {/* Heading */}
           <h1
             ref={headingRef}
-            className="text-4xl md:text-5xl lg:text-4xl font-black mb-3 tracking-tight leading-tight"
+            className="hero-heading-anim text-4xl md:text-5xl lg:text-4xl font-black mb-3 tracking-tight leading-tight"
             style={{ color: '#0F172A' }}
           >
             <span className="sr-only">Ishan Apte — </span>Software Engineer

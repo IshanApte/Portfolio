@@ -225,3 +225,12 @@
   background: #F9FAFB; /* Main canvas background */
 }
 
+/* Hides the hero heading via CSS (not a blocking layout effect) until the GSAP
+   SplitText intro takes over, so first paint never waits on JS. Reduced-motion
+   users skip the animation entirely and see the heading immediately. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-heading-anim {
+    opacity: 0;
+  }
+}
+
