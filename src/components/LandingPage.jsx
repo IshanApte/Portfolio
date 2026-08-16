@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap, SplitText } from '../utils/gsap';
 
 const LandingPage = () => {
@@ -8,22 +8,11 @@ const LandingPage = () => {
   const chipsRef = useRef(null);
   const ctaRef = useRef(null);
 
+  // Text intro must run before first paint (useLayoutEffect) so animated users never
+  // see the un-hidden heading flash before GSAP sets its starting transform/opacity.
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero image gently recedes as the page scrolls past it
-      gsap.to(heroRef.current, {
-        scale: 0.94,
-        opacity: 0.8,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
-      // Text intro timeline, skipped entirely for reduced-motion users
+      // Skipped entirely for reduced-motion users
       gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
         SplitText.create(headingRef.current, {
           type: 'words',
@@ -42,6 +31,27 @@ const LandingPage = () => {
               .from(ctaRef.current, { y: 20, opacity: 0, duration: 0.6 }, '-=0.4');
           },
         });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  // Scroll-linked parallax has no visible effect until the user scrolls, so its
+  // (relatively expensive) ScrollTrigger geometry measurement can happen after first
+  // paint instead of forcing a synchronous reflow on the initial render.
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(heroRef.current, {
+        scale: 0.94,
+        opacity: 0.8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
       });
     });
 
