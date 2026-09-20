@@ -11,6 +11,7 @@ const BlogLayout = lazy(() => import("./components/BlogLayout"));
 const BlogPost = lazy(() => import("./components/BlogPost"));
 const PrivacyPolicy = lazy(() => import("./components/legal/PrivacyPolicy"));
 const FloatingChatbot = lazy(() => import("./components/FloatingChatbot"));
+const VoiceNav = lazy(() => import("./components/VoiceNav"));
 
 const App = () => {
   useEffect(() => {
@@ -47,12 +48,12 @@ const App = () => {
             </AnimatedSection> */}
             
                         {/* Works Section - Dark background (originally Experience) */}
-            <AnimatedSection isGray={false} delay={0.2}>
+            <AnimatedSection id="projects" isGray={false} delay={0.2}>
               <Works />
             </AnimatedSection>
-            
+
             {/* Experience Section - Gray background (originally Works) */}
-            <AnimatedSection isGray={true} delay={0.3}>
+            <AnimatedSection id="experience" isGray={true} delay={0.3}>
               <Experience />
             </AnimatedSection>
               
@@ -67,6 +68,11 @@ const App = () => {
             {/* Add the floating chatbot */}
             <Suspense fallback={null}>
               <FloatingChatbot />
+            </Suspense>
+
+            {/* Voice-controlled navigation */}
+            <Suspense fallback={null}>
+              <VoiceNav />
             </Suspense>
           </div>
         } />
